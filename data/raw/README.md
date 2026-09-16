@@ -1,0 +1,1 @@
+Place separately downloaded ESA-Mission1 or ESA-Mission2 directories here. Raw channel zip files contain pandas pickle objects; use only trusted official files. See docs/ESA.md. No real mission data is bundled.
