@@ -1,0 +1,87 @@
+{
+  "subsystem": "ADCS",
+  "possible_issue": "Possible Reaction Wheel 2 degradation",
+  "risk": 81.88899297185996,
+  "confidence": 1.0,
+  "confidence_definition": "Fraction of available inputs and in-range operating context, discounted during warm-up; not calibrated diagnostic confidence.",
+  "observed_evidence_onset": "2026-01-03T11:00:00+00:00",
+  "trend": "Increasing departure",
+  "evidence": [
+    {
+      "signal": "reaction_wheel_2_temperature",
+      "observed": 56.57972967249771,
+      "expected": 28.714848929339265,
+      "deviation": 27.864880743158448,
+      "deviation_percent": 97.03996984879706,
+      "residual_sigma": 230.3848553760131,
+      "trailing_variance_change_percent": 112.97854001880995,
+      "slope_sigma_per_hour": 1.5593658601062141,
+      "slope_units_per_hour": 0.188604166953139,
+      "unit": "\u00b0C"
+    },
+    {
+      "signal": "reaction_wheel_2_current",
+      "observed": 1.2014344764127176,
+      "expected": 0.4231750890819333,
+      "deviation": 0.7782593873307844,
+      "deviation_percent": 183.90954652344888,
+      "residual_sigma": 156.3438847335286,
+      "trailing_variance_change_percent": 70.63877886799601,
+      "slope_sigma_per_hour": 1.1169225968504688,
+      "slope_units_per_hour": 0.005559894442960193,
+      "unit": "A"
+    },
+    {
+      "signal": "wheel_2_current_per_krpm",
+      "observed": 0.4012866529537562,
+      "expected": 0.14753342505638867,
+      "deviation": 0.25375322789736754,
+      "deviation_percent": 171.9971103499974,
+      "residual_sigma": 143.0109404618442,
+      "trailing_variance_change_percent": 6089.182624989053,
+      "slope_sigma_per_hour": 2.5299374329338824,
+      "slope_units_per_hour": 0.004489025720075136,
+      "unit": ""
+    },
+    {
+      "signal": "attitude_error",
+      "observed": 0.24966898030156168,
+      "expected": 0.026984530275460338,
+      "deviation": 0.22268445002610135,
+      "deviation_percent": 825.230040148633,
+      "residual_sigma": 111.79152636714123,
+      "trailing_variance_change_percent": 17.55534575355766,
+      "slope_sigma_per_hour": 0.7897892778911341,
+      "slope_units_per_hour": 0.0015732300711782151,
+      "unit": "deg"
+    },
+    {
+      "signal": "reaction_wheel_2_rpm",
+      "observed": 2993.955736053772,
+      "expected": 2868.940594208178,
+      "deviation": 125.01514184559392,
+      "deviation_percent": 4.357536788944835,
+      "residual_sigma": 13.76494291606484,
+      "trailing_variance_change_percent": 13230.261575596196,
+      "slope_sigma_per_hour": -0.920747967044355,
+      "slope_units_per_hour": -8.362362154786148,
+      "unit": "rpm"
+    }
+  ],
+  "contributions": {
+    "anomaly": 18.437526791801183,
+    "degradation": 24.86695376204879,
+    "severity": 17.327378278423314,
+    "persistence": 12.995533708817485,
+    "urgency": 8.261600430769183
+  },
+  "score_change": 0.24056959415240442,
+  "contribution_changes": {
+    "anomaly": 0.07264260017877788,
+    "degradation": 0.08101987547470912,
+    "severity": 0.03138576755939937,
+    "persistence": 0.023539325669549527,
+    "urgency": 0.03198202526997029
+  },
+  "reason": "Context regression residuals depart from healthy multi-sensor patterns. Isolation Forest measures joint novelty; trailing residual slopes and persistence distinguish sustained changes. Signal evidence is associative, not a causal diagnosis."
+}
