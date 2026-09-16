@@ -1,0 +1,157 @@
+{
+  "degradation_runs": 100,
+  "healthy_control_runs": 100,
+  "detected_before_failure": 100,
+  "event_recall": 1.0,
+  "event_recall_95pct_interval": [
+    0.9637833073548235,
+    1.0
+  ],
+  "paired_lead_time_runs": 100,
+  "early_warning_runs": 100,
+  "median_lead_time_hours": 85.25,
+  "lead_time_p10_hours": 66.06666666666668,
+  "lead_time_p90_hours": 113.12500000000001,
+  "false_alert_events": 0,
+  "healthy_exposure_hours": 27632.166666666668,
+  "false_alerts_per_1000_hours": 0.0,
+  "zero_false_alert_poisson_95pct_upper_per_1000h": 0.10841467155624147,
+  "subsystem_accuracy_at_warning": 1.0,
+  "point_metrics": {
+    "counts": {
+      "tp": 135477,
+      "fp": 0,
+      "tn": 331586,
+      "fn": 22105
+    },
+    "precision": 1.0,
+    "recall": 0.8597238263253417,
+    "true_positive_rate": 0.8597238263253417,
+    "false_positive_rate": 0.0
+  },
+  "policy": "Point positives start at injected degradation onset (includes subtle undetectable phase). Warm-up and post-failure excluded. False alerts count warning episode starts during healthy exposure. Lead time uses paired observed alerts; misses are separately reported.",
+  "source": "SIMULATED DATA",
+  "not_a_real_mission_validation": true,
+  "by_scenario": {
+    "reaction_wheel": {
+      "degradation_runs": 34,
+      "healthy_control_runs": 0,
+      "detected_before_failure": 34,
+      "event_recall": 1.0,
+      "event_recall_95pct_interval": [
+        0.8971820757409874,
+        1.0
+      ],
+      "paired_lead_time_runs": 34,
+      "early_warning_runs": 34,
+      "median_lead_time_hours": 95.33333333333333,
+      "lead_time_p10_hours": 74.925,
+      "lead_time_p90_hours": 110.78333333333333,
+      "false_alert_events": 0,
+      "healthy_exposure_hours": 1458.8333333333333,
+      "false_alerts_per_1000_hours": 0.0,
+      "zero_false_alert_poisson_95pct_upper_per_1000h": 2.053512354772529,
+      "subsystem_accuracy_at_warning": 1.0,
+      "point_metrics": {
+        "counts": {
+          "tp": 48237,
+          "fp": 0,
+          "tn": 17506,
+          "fn": 5426
+        },
+        "precision": 1.0,
+        "recall": 0.8988875016305462,
+        "true_positive_rate": 0.8988875016305462,
+        "false_positive_rate": 0.0
+      },
+      "policy": "Point positives start at injected degradation onset (includes subtle undetectable phase). Warm-up and post-failure excluded. False alerts count warning episode starts during healthy exposure. Lead time uses paired observed alerts; misses are separately reported.",
+      "source": "SIMULATED DATA",
+      "not_a_real_mission_validation": true
+    },
+    "battery": {
+      "degradation_runs": 33,
+      "healthy_control_runs": 0,
+      "detected_before_failure": 33,
+      "event_recall": 1.0,
+      "event_recall_95pct_interval": [
+        0.8942371899254207,
+        1.0
+      ],
+      "paired_lead_time_runs": 33,
+      "early_warning_runs": 33,
+      "median_lead_time_hours": 99.16666666666667,
+      "lead_time_p10_hours": 81.2,
+      "lead_time_p90_hours": 122.36666666666667,
+      "false_alert_events": 0,
+      "healthy_exposure_hours": 1355.4166666666667,
+      "false_alerts_per_1000_hours": 0.0,
+      "zero_false_alert_poisson_95pct_upper_per_1000h": 2.210192885499409,
+      "subsystem_accuracy_at_warning": 1.0,
+      "point_metrics": {
+        "counts": {
+          "tp": 47577,
+          "fp": 0,
+          "tn": 16265,
+          "fn": 4079
+        },
+        "precision": 1.0,
+        "recall": 0.9210353105157194,
+        "true_positive_rate": 0.9210353105157194,
+        "false_positive_rate": 0.0
+      },
+      "policy": "Point positives start at injected degradation onset (includes subtle undetectable phase). Warm-up and post-failure excluded. False alerts count warning episode starts during healthy exposure. Lead time uses paired observed alerts; misses are separately reported.",
+      "source": "SIMULATED DATA",
+      "not_a_real_mission_validation": true
+    },
+    "solar": {
+      "degradation_runs": 33,
+      "healthy_control_runs": 0,
+      "detected_before_failure": 33,
+      "event_recall": 1.0,
+      "event_recall_95pct_interval": [
+        0.8942371899254207,
+        1.0
+      ],
+      "paired_lead_time_runs": 33,
+      "early_warning_runs": 33,
+      "median_lead_time_hours": 67.83333333333333,
+      "lead_time_p10_hours": 60.6,
+      "lead_time_p90_hours": 83.06666666666666,
+      "false_alert_events": 0,
+      "healthy_exposure_hours": 1417.9166666666667,
+      "false_alerts_per_1000_hours": 0.0,
+      "zero_false_alert_poisson_95pct_upper_per_1000h": 2.112770336917302,
+      "subsystem_accuracy_at_warning": 1.0,
+      "point_metrics": {
+        "counts": {
+          "tp": 39663,
+          "fp": 0,
+          "tn": 17015,
+          "fn": 12600
+        },
+        "precision": 1.0,
+        "recall": 0.7589116583433787,
+        "true_positive_rate": 0.7589116583433787,
+        "false_positive_rate": 0.0
+      },
+      "policy": "Point positives start at injected degradation onset (includes subtle undetectable phase). Warm-up and post-failure excluded. False alerts count warning episode starts during healthy exposure. Lead time uses paired observed alerts; misses are separately reported.",
+      "source": "SIMULATED DATA",
+      "not_a_real_mission_validation": true
+    }
+  },
+  "model": {
+    "training_rows": 8640,
+    "calibration_rows": 4032,
+    "training_source": "SIMULATED DATA",
+    "features": 522,
+    "model_version": "0.1.0",
+    "training_seed": 11,
+    "calibration_seed": 29,
+    "training_days": 30,
+    "calibration_days": 14
+  },
+  "evaluation_seed_range": [
+    1000,
+    1199
+  ]
+}
