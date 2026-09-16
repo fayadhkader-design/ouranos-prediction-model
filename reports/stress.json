@@ -1,0 +1,36 @@
+{
+  "source": "SIMULATED DATA",
+  "interpretation": "Sensor drift and unmodeled loads can resemble degradation. Stress cases have no simulated equipment failure and warnings may be nuisance alarms; these are separate from the frozen nominal evaluation.",
+  "cases": [
+    {
+      "case": "nominal",
+      "max_risk": 11.004460374509794,
+      "warning_episodes": 0,
+      "first_warning_hours": null
+    },
+    {
+      "case": "single_spike",
+      "max_risk": 23.460044033394574,
+      "warning_episodes": 0,
+      "first_warning_hours": null
+    },
+    {
+      "case": "fourfold_sensor_noise",
+      "max_risk": 29.878208389222912,
+      "warning_episodes": 0,
+      "first_warning_hours": null
+    },
+    {
+      "case": "unmodeled_sensor_drift",
+      "max_risk": 47.56326666285919,
+      "warning_episodes": 5,
+      "first_warning_hours": 114.16666666666667
+    },
+    {
+      "case": "unmodeled_load_step",
+      "max_risk": 63.6912048640342,
+      "warning_episodes": 4,
+      "first_warning_hours": 77.33333333333333
+    }
+  ]
+}
