@@ -1,0 +1,10 @@
+{
+  "scenario": "reaction_wheel",
+  "seed": 42,
+  "hours": 240,
+  "onset_hours": 48,
+  "duration_hours": 150,
+  "noise_scale": 1.0,
+  "cadence_minutes": 5,
+  "source": "SIMULATED DATA"
+}
