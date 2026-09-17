@@ -1,0 +1,10 @@
+{
+  "models/esa_supervised/threshold.json": "1034ec27ff76c7c673218c24308368bbe79b0d3df1a9aefd4bf6c885fd114bb5",
+  "models/esa_supervised/classifier.pt": "bcdd9ec99b3a2565a3727a4c67a64b168a433eb0b2cba1aabe1364e829a11d61",
+  "reports/esa_supervised/metrics.json": "f7272953a25295106e5de19d505a56b597e32c83d31cb638d31f411f1241160b",
+  "reports/esa_supervised/common_coverage_comparison.json": "2dfd93c36926c4200341fe515351f9250b774c4b29e97a190cddc9a74c6d6fb1",
+  "reports/esa_supervised/training.json": "eb716f311247b814ad4b965bc96605967a8f04dbb6ed5074631d2a9688718aa2",
+  "reports/esa_supervised/events.csv": "f6ff4ba7755c52cd173372ca1957aa7a0817d4864e4246247302f8fb35259c25",
+  "src/neural/supervised.py": "a49994525b17b2fcb641a132c8054e8220df40e3078963867387eee97d858b24",
+  "src/neural/compare_supervised.py": "dfa1f110dfedbbc820b6b0ada691ee3acd2828b2c7124832c51c6ec5496ca0e3"
+}

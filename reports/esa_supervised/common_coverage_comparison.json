@@ -1,0 +1,92 @@
+{
+  "scope": "Post-hoc common-coverage retrospective comparison; V1 alerts OR-aggregated within right-closed minute bins; V2 same frozen threshold",
+  "common_minutes": 3636104,
+  "positive_common_minutes": 8866,
+  "models": {
+    "autoencoder": {
+      "detected_events": 4,
+      "total_events": 29,
+      "point": {
+        "tp": 4282,
+        "fp": 420,
+        "tn": 3626818,
+        "fn": 4584,
+        "precision": 0.9106763079540621,
+        "recall": 0.48296864425896685,
+        "true_positive_rate": 0.48296864425896685,
+        "false_positive_rate": 0.00011579058225569979
+      },
+      "predicted_episodes": 220,
+      "true_overlapping_episodes": 104,
+      "false_nonoverlapping_episodes": 116,
+      "episodes_starting_outside_anomaly": 117,
+      "false_episodes_per_1000_nominal_hours": 1.9188153630944538
+    },
+    "supervised": {
+      "detected_events": 22,
+      "total_events": 29,
+      "point": {
+        "tp": 4582,
+        "fp": 1516127,
+        "tn": 2111111,
+        "fn": 4284,
+        "precision": 0.0030130682464560936,
+        "recall": 0.516805774870291,
+        "true_positive_rate": 0.516805774870291,
+        "false_positive_rate": 0.41798387643711277
+      },
+      "predicted_episodes": 94339,
+      "true_overlapping_episodes": 70,
+      "false_nonoverlapping_episodes": 94269,
+      "episodes_starting_outside_anomaly": 94280,
+      "false_episodes_per_1000_nominal_hours": 1559.3517712375092
+    }
+  },
+  "supervised_by_year": [
+    {
+      "year": 2005,
+      "scored_minutes": 520671,
+      "negative_alert_fraction": 1.728565309998982e-05
+    },
+    {
+      "year": 2006,
+      "scored_minutes": 525600,
+      "negative_alert_fraction": 2.473382598041081e-05
+    },
+    {
+      "year": 2007,
+      "scored_minutes": 521098,
+      "negative_alert_fraction": 0.0005499602053442964
+    },
+    {
+      "year": 2008,
+      "scored_minutes": 526426,
+      "negative_alert_fraction": 0.0035275814316623705
+    },
+    {
+      "year": 2009,
+      "scored_minutes": 485159,
+      "negative_alert_fraction": 0.5041016617306286
+    },
+    {
+      "year": 2010,
+      "scored_minutes": 525600,
+      "negative_alert_fraction": 0.7988817940295994
+    },
+    {
+      "year": 2011,
+      "scored_minutes": 525600,
+      "negative_alert_fraction": 0.9157497169712595
+    },
+    {
+      "year": 2012,
+      "scored_minutes": 526776,
+      "negative_alert_fraction": 0.6911415185317367
+    },
+    {
+      "year": 2013,
+      "scored_minutes": 525600,
+      "negative_alert_fraction": 0.013645513457155143
+    }
+  ]
+}

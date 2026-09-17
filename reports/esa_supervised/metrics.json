@@ -1,0 +1,42 @@
+{
+  "source": "REAL MISSION DATA",
+  "test_status": "Retrospective comparison: these 2007\u20132013 years were already inspected for V1. No claim of fresh untouched final validation.",
+  "model": "Supervised binary neural classifier",
+  "features": "Past-only minute last/min/max/std and preceding-minute differences; no annotated label as input",
+  "threshold": {
+    "threshold": 0.99,
+    "detected_events": 7,
+    "scorable_events": 8,
+    "false_starts_per_1000h": 1.204290715778789
+  },
+  "point": {
+    "tp": 4582,
+    "fp": 1516127,
+    "tn": 2111267,
+    "fn": 4284,
+    "precision": 0.0030130682464560936,
+    "recall": 0.516805774870291,
+    "true_positive_rate": 0.516805774870291,
+    "false_positive_rate": 0.4179659005886871
+  },
+  "average_precision": 0.4468144897279128,
+  "detected_events": 22,
+  "total_events": 29,
+  "scored_rows": 3636260,
+  "test_rows": 3682081,
+  "predicted_episodes": 94339,
+  "true_overlapping_episodes": 70,
+  "false_nonoverlapping_episodes": 94269,
+  "episodes_starting_outside_anomaly": 94280,
+  "nominal_hours": 60456.566666666666,
+  "false_alerts_per_1000_nominal_hours": 1559.2847096290063,
+  "limitations": [
+    "Only six channels from one mission",
+    "Not a calibrated probability or failure predictor",
+    "Minute binning delays alerts until bin closes",
+    "Brief-event extrema preserved, but independent extrema are not simultaneous sensor readings",
+    "Event-capped positive sampling and weighted loss alter class prior",
+    "No physical subsystem mapping",
+    "Test years already inspected; additional independent validation required"
+  ]
+}

@@ -1,0 +1,90 @@
+{
+  "training_positive_examples": 1555,
+  "training_examples": 81555,
+  "validation_positive_examples": 201,
+  "validation_examples": 30201,
+  "best_epoch": 7,
+  "history": [
+    {
+      "epoch": 1,
+      "loss": 1.1739407371729613,
+      "validation_sample_average_precision": 0.08208675306242291
+    },
+    {
+      "epoch": 2,
+      "loss": 1.0708887327462435,
+      "validation_sample_average_precision": 0.5424831843546875
+    },
+    {
+      "epoch": 3,
+      "loss": 0.8999412190169096,
+      "validation_sample_average_precision": 0.33709899100127017
+    },
+    {
+      "epoch": 4,
+      "loss": 0.8062546154484153,
+      "validation_sample_average_precision": 0.37940404357181196
+    },
+    {
+      "epoch": 5,
+      "loss": 0.7687083078548312,
+      "validation_sample_average_precision": 0.962058878618023
+    },
+    {
+      "epoch": 6,
+      "loss": 0.7431218868121505,
+      "validation_sample_average_precision": 0.9652941889858342
+    },
+    {
+      "epoch": 7,
+      "loss": 0.7263496544212102,
+      "validation_sample_average_precision": 0.9672301259673078
+    },
+    {
+      "epoch": 8,
+      "loss": 0.7175987843424082,
+      "validation_sample_average_precision": 0.9666124573837076
+    },
+    {
+      "epoch": 9,
+      "loss": 0.7069930983707309,
+      "validation_sample_average_precision": 0.966900996772507
+    },
+    {
+      "epoch": 10,
+      "loss": 0.6986476855352521,
+      "validation_sample_average_precision": 0.9661798639865055
+    },
+    {
+      "epoch": 11,
+      "loss": 0.6928413018584252,
+      "validation_sample_average_precision": 0.9664170216419318
+    },
+    {
+      "epoch": 12,
+      "loss": 0.6843807751312851,
+      "validation_sample_average_precision": 0.966189126948959
+    },
+    {
+      "epoch": 13,
+      "loss": 0.6798103652894497,
+      "validation_sample_average_precision": 0.9656234710059013
+    },
+    {
+      "epoch": 14,
+      "loss": 0.6744670445099473,
+      "validation_sample_average_precision": 0.9654323789068943
+    },
+    {
+      "epoch": 15,
+      "loss": 0.6657445877790451,
+      "validation_sample_average_precision": 0.9648017826342297
+    }
+  ],
+  "selection": "Earlier labeled events capped at 200 bins/event; random negatives; validation AP on sampled set is not full-stream precision",
+  "split_dates": [
+    "2004-01-01",
+    "2005-01-01",
+    "2007-01-01"
+  ]
+}
