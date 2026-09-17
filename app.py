@@ -94,10 +94,12 @@ def jump_demo(stage, scenario):
 
 
 with st.sidebar:
-    st.markdown("### Scenario playback")
+    st.markdown('<div class="side-brand">Ouranos<span>Mission monitoring</span></div>', unsafe_allow_html=True)
+    st.markdown("### SAT-001")
+    st.caption("Scenario controls")
     demo_scenario = st.selectbox("Demo scenario", ["reaction_wheel", "battery", "solar"], format_func=lambda value: {"reaction_wheel": "Reaction wheel degradation", "battery": "Battery degradation", "solar": "Solar array degradation"}[value])
     st.button("Run scenario", type="primary", width="stretch", on_click=start_guided, args=(demo_scenario,))
-    st.caption("About one minute at the default speed. Starts healthy, then injects gradual degradation at hour 48.")
+    st.caption("Degradation begins at hour 48.")
     with st.expander("Jump to event"):
         st.button("Healthy operations", width="stretch", on_click=jump_demo, args=("healthy", demo_scenario))
         st.button("First warning", width="stretch", on_click=jump_demo, args=("warning", demo_scenario))
@@ -105,40 +107,40 @@ with st.sidebar:
         st.caption("Jumps to calculated events in the selected scenario.")
     st.divider()
     st.markdown("### Playback")
-    st.caption("Manual controls")
     st.button(
         "Pause" if session.running else "Start playback",
-        type="primary",
+        type="secondary",
         width="stretch",
         on_click=toggle_playback,
     )
-    st.button("Return to normal", on_click=reset, width="stretch")
-    disabled = session.scenario != "normal" or session.cursor >= session.hours * 12
-    st.markdown("#### Inject degradation")
-    st.button(
-        "Battery degradation",
-        on_click=inject,
-        args=("battery",),
-        disabled=disabled,
-        width="stretch",
-    )
-    st.button(
-        "Reaction wheel degradation",
-        on_click=inject,
-        args=("reaction_wheel",),
-        disabled=disabled,
-        width="stretch",
-    )
-    st.button(
-        "Solar array degradation",
-        on_click=inject,
-        args=("solar",),
-        disabled=disabled,
-        width="stretch",
-    )
-    st.caption(
-        "Injection begins at the current playback time. Reset to compare a different scenario."
-    )
+    with st.expander("Manual fault injection"):
+        st.button("Return to normal", on_click=reset, width="stretch")
+        disabled = session.scenario != "normal" or session.cursor >= session.hours * 12
+        st.markdown("#### Inject degradation")
+        st.button(
+            "Battery degradation",
+            on_click=inject,
+            args=("battery",),
+            disabled=disabled,
+            width="stretch",
+        )
+        st.button(
+            "Reaction wheel degradation",
+            on_click=inject,
+            args=("reaction_wheel",),
+            disabled=disabled,
+            width="stretch",
+        )
+        st.button(
+            "Solar array degradation",
+            on_click=inject,
+            args=("solar",),
+            disabled=disabled,
+            width="stretch",
+        )
+        st.caption(
+            "Injection begins at the current playback time. Reset to compare a different scenario."
+        )
     st.divider()
     speed = st.selectbox(
         "Playback speed",
@@ -178,10 +180,10 @@ with st.sidebar:
     )
 
 st.markdown(
-    '<div class="masthead"><span class="wordmark">Ouranos<span>Telemetry workbench</span></span><span class="provenance">Demo workspace · V0</span></div>',
+    '<div class="masthead"><span class="wordmark">Assets <span>/</span> SAT-001 <span>/</span> Overview</span><span class="provenance">Demo · V0</span></div>',
     unsafe_allow_html=True,
 )
-st.caption("Review telemetry against expected behavior, then inspect the evidence behind each warning.")
+
 
 
 @st.fragment(run_every=1.0 if session.running else None)
@@ -214,26 +216,16 @@ def dashboard():
     anomaly = hour_of(first_time((view.anomaly >= 0.5).rolling(6).sum().eq(6), time))
     leader = row.subsystem if row.risk >= 25 else "No sustained concern"
     color = RED if row.risk >= 65 else AMBER if row.risk >= 25 else CYAN
-    top, clockcol = st.columns([4, 1])
-    with top:
-        st.markdown(
-            '<div class="asset">SAT-001</div>',
-            unsafe_allow_html=True,
-        )
-        st.markdown(
-            f'<div class="score-row"><span class="score">{int(row.risk)}<small> / 100</small></span><div><div class="status" style="color:{color}">{row.status.title()}</div><div class="quiet">Ouranos Risk Score</div></div></div>',
-            unsafe_allow_html=True,
-        )
-    with clockcol:
-        st.markdown(
-            f'<div class="quiet">Mission elapsed</div><div style="font:500 1.5rem ui-monospace;white-space:nowrap">{i / 12:.1f} h</div>',
-            unsafe_allow_html=True,
-        )
-        st.caption(
-            ("STREAMING" if session.running else "PAUSED")
-            + " · "
-            + sim.telemetry.spacecraft_mode.iloc[i]
-        )
+    state = "Playing" if session.running else "Paused"
+    st.markdown(
+        f'<div class="summary-strip">'
+        f'<div><span>Risk index</span><strong>{row.risk:.0f}<small> / 100</small></strong></div>'
+        f'<div><span>Assessment</span><strong style="color:{color}">{row.status.title()}</strong></div>'
+        f'<div><span>Leading subsystem</span><strong>{leader if row.risk >= 25 else "—"}</strong></div>'
+        f'<div><span>Mission elapsed</span><strong>{i / 12:.1f}<small> h</small></strong></div>'
+        f'<div><span>Playback</span><strong>{state}</strong></div></div>',
+        unsafe_allow_html=True,
+    )
     if failure is not None:
         st.error(
             "Scenario complete · This is a scripted scenario endpoint, not a predicted failure time."
@@ -268,12 +260,12 @@ def dashboard():
             f"Ouranos warning at {warning:.1f} h. Conventional limits have not alerted. Final lead time is not yet known."
         )
     overview, evidence, evaluation, data = st.tabs(
-        ["Mission overview", "Evidence & score audit", "Evaluation", "Data & model"]
+        ["Overview", "Alert investigation", "Evaluation", "Data & model"]
     )
     with overview:
-        left, right = st.columns([3.2, 1], gap="large")
-        with left:
-            st.subheader("Risk trajectory")
+        left, right = st.columns([3, 1.2], gap="small")
+        with left, st.container(border=True):
+            st.subheader("Risk history")
             events = [
                 ("Injection", onset, MUTED),
                 ("Ouranos", warning, CYAN),
@@ -286,7 +278,7 @@ def dashboard():
             st.caption(
                 "Dashed horizontal line: warning policy at 45, sustained for 30 minutes. All processing uses current and past samples."
             )
-        with right:
+        with right, st.container(border=True):
             st.subheader("Subsystem risk")
             for group, value in result.subsystems.iloc[i].items():
                 st.markdown(
@@ -301,27 +293,28 @@ def dashboard():
                 f"{row.confidence:.0%}",
                 help=explanation["confidence_definition"],
             )
-        st.subheader("Telemetry inspection")
-        c1, c2, c3 = st.columns([2, 3, 1])
-        group = c1.selectbox("Subsystem", list(SUBSYSTEMS), index=3, key="plot_group")
-        channel = c2.selectbox(
-            "Telemetry channel",
-            SUBSYSTEMS[group],
-            index=4 if group == "ADCS" else 0,
-            format_func=lambda c: c.replace("_", " ").capitalize(),
-            key="plot_channel",
-        )
-        window = c3.selectbox(
-            "History", [24, 48, 120, 240], index=1, format_func=lambda h: f"{h} hours"
-        )
-        st.plotly_chart(
-            telemetry_chart(result, cursor, channel, window),
-            width="stretch",
-            key="telemetry",
-        )
-        st.caption(
-            f"{UNITS.get(channel, 'Engineering units')} · Healthy envelope is residual standard deviation, not a prediction confidence interval."
-        )
+        with st.container(border=True):
+            st.subheader("Telemetry inspection")
+            c1, c2, c3 = st.columns([2, 3, 1])
+            group = c1.selectbox("Subsystem", list(SUBSYSTEMS), index=3, key="plot_group")
+            channel = c2.selectbox(
+                "Telemetry channel",
+                SUBSYSTEMS[group],
+                index=4 if group == "ADCS" else 0,
+                format_func=lambda c: c.replace("_", " ").capitalize(),
+                key="plot_channel",
+            )
+            window = c3.selectbox(
+                "History", [24, 48, 120, 240], index=1, format_func=lambda h: f"{h} hours"
+            )
+            st.plotly_chart(
+                telemetry_chart(result, cursor, channel, window),
+                width="stretch",
+                key="telemetry",
+            )
+            st.caption(
+                f"{UNITS.get(channel, 'Engineering units')} · Healthy envelope is residual standard deviation, not a prediction confidence interval."
+            )
         with st.expander("Why did the score change?"):
             delta = pd.DataFrame(
                 {

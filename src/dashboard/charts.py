@@ -87,7 +87,7 @@ def risk_chart(result, cursor, events):
             )
     fig.update_yaxes(range=[0, 105], title_text="Risk / 100", row=1, col=1)
     fig.update_yaxes(range=[0, 1.05], title_text="Score", row=2, col=1)
-    fig = style(fig, 410)
+    fig = style(fig, 350)
     fig.update_xaxes(title_text=None, row=1, col=1)
     return fig
 
@@ -143,4 +143,4 @@ def telemetry_chart(result, cursor, channel, history_hours=48):
             line_dash="dash",
             annotation_text="Conventional limit",
         )
-    return style(fig, 290)
+    return style(fig, 280)
