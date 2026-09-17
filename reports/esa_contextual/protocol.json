@@ -1,0 +1,22 @@
+{
+  "config": {
+    "fast": 60,
+    "slow": 1440,
+    "coverage": 0.9,
+    "scale_floor": 0.05,
+    "seed": 2029,
+    "false_starts_budget": 10.0,
+    "nominal_alarm_budget": 0.001,
+    "train_end": "2004-01-01",
+    "validation_end": "2005-01-01",
+    "calibration_end": "2007-01-01"
+  },
+  "candidates": [
+    "context_nn",
+    "context_nn_augmented",
+    "context_tree"
+  ],
+  "selection": "Maximum calibration event detection subject to <=10 false starts/1000 nominal h and <=0.1% nominal time alarm; ties fewer false starts then less nominal alarm time",
+  "evaluation": "2007\u20132013 retrospective; already viewed in previous experiments; no fresh validation claim",
+  "augmentation": "Feature-space channel-coherent gains .85\u20131.15, training only; not physics-validated synthetic telemetry"
+}

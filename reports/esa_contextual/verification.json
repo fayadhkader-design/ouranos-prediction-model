@@ -1,0 +1,17 @@
+{
+  "tests_passed": 52,
+  "saved_checkpoint_matches_prior_predictions_atol_1e_5": 2880,
+  "raw_csv_full_context_predictions_compared": 2880,
+  "raw_csv_max_score_difference": 7.807999999998039e-05,
+  "raw_csv_tolerance": 0.0001,
+  "csv_numerics_note": "CSV parsing and reaggregation use float64 observations versus original float32 archive statistics; all alert decisions identical",
+  "real_excerpt_status_counts": {
+    "NO ALERT": 3023,
+    "UNSCORED": 1296,
+    "ANOMALY": 1
+  },
+  "alert_timestamps": [
+    "2013-10-01 01:14:00+00:00"
+  ],
+  "raw_source": "Previously hash-verified ESA Mission 1 downloaded channel archives; no synthetic observations in this smoke test"
+}

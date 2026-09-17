@@ -1,0 +1,19 @@
+{
+  "models/esa_contextual/context_nn_augmented.joblib": "0f12ef8d41bf0417c4a6587e856e9d2d9f03408e883d855a132c8d72ab0de492",
+  "models/esa_contextual/context_tree.joblib": "78073eb4a4997abc7df6cfce2b02c7247f354b6240f2c9ae32fe447f743e703a",
+  "models/esa_contextual/context_nn.joblib": "af3346960aff44220c88d2341da6a58a7f2c48b7db1822a7dfd9cc92d5284724",
+  "models/esa_contextual/selection.json": "bf13a8f7c5187c6190c29178bdbb09c9b07fd634626a698a8f74c2e8cb2736e2",
+  "reports/esa_contextual/context_tree_calibration.json": "a17356a86704d0502dae6e911e3a8f8527fb99f6960006d6384bfdcabebfb57f",
+  "reports/esa_contextual/metrics.json": "ad9e54733f6512542fe07217b789109746266fe253626e4c06539bbadab227f0",
+  "reports/esa_contextual/training.json": "aa27cf241c7e9e5dcd6c445673bb1ea3cf47de386fb9263f9d5ca94d7bec9c68",
+  "reports/esa_contextual/common_coverage.json": "117d31839c2b901f209d7e1b5204ff577ff3cc1653a1d8635c09a7cfb49169cb",
+  "reports/esa_contextual/context_nn_augmented_calibration.json": "dc60f87d2c7172a319236bb58e405fd9690adce9277999da6579e127d54b8cd9",
+  "reports/esa_contextual/protocol.json": "f764e807884d7d6a36be9ec292ace6808d3c75368046e7759b7cdd794fa91aba",
+  "reports/esa_contextual/verification.json": "46adb35ecaaf19ebcd53d3afd530242d3512b68de26cc5b42dad0aacd502af83",
+  "reports/esa_contextual/context_nn_calibration.json": "b3184e26e2456d0524e7bd8b2208a925e9cae48bb5b34386c7b9de427ddddec8",
+  "src/neural/contextual.py": "0ca307935832010fefe5c3e44c7fd3331e65cc24ef5f8527b92d4b30f0435d65",
+  "src/neural/predict_contextual.py": "e29129ed17fbbca4b8b051b283bb43d15f4ec380f04c8c74a95f40affaff5489",
+  "src/neural/compare_contextual.py": "925c2b17d6f238c4b20de28d435f93cb6376c7561e982ea94de54e6eeed60d48",
+  "tests/test_contextual.py": "1a58333962a25336cf416ab73ea9bac180e297ff6afd6497515b47674160ea3e",
+  "docs/ESA_CONTEXTUAL.md": "432e4733a3e78f3fd5450992788cbfcb8b5c070f46d0187bea0d93826b400737"
+}

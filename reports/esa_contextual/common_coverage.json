@@ -1,0 +1,45 @@
+{
+  "scope": "Identical scored minutes; each frozen calibration policy; later years already examined",
+  "common_minutes": 3631973,
+  "positive_minutes": 7597,
+  "models": {
+    "previous_supervised": {
+      "detected_events": 20,
+      "total_events": 29,
+      "point": {
+        "tp": 4069,
+        "fp": 1515024,
+        "tn": 2109352,
+        "fn": 3528,
+        "precision": 0.0026785720163281642,
+        "recall": 0.5356061603264447,
+        "true_positive_rate": 0.5356061603264447,
+        "false_positive_rate": 0.4180096104819147
+      },
+      "predicted_episodes": 94270,
+      "true_overlapping_episodes": 24,
+      "false_nonoverlapping_episodes": 94246,
+      "episodes_starting_outside_anomaly": 94256,
+      "false_alerts_per_1000_nominal_hours": 1560.202363110229
+    },
+    "context_nn": {
+      "detected_events": 19,
+      "total_events": 29,
+      "point": {
+        "tp": 204,
+        "fp": 414,
+        "tn": 3623962,
+        "fn": 7393,
+        "precision": 0.3300970873786408,
+        "recall": 0.026852705015137555,
+        "true_positive_rate": 0.026852705015137555,
+        "false_positive_rate": 0.00011422655927530697
+      },
+      "predicted_episodes": 237,
+      "true_overlapping_episodes": 77,
+      "false_nonoverlapping_episodes": 160,
+      "episodes_starting_outside_anomaly": 160,
+      "false_alerts_per_1000_nominal_hours": 2.6487318092824803
+    }
+  }
+}

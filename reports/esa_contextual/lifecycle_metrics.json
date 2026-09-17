@@ -1,0 +1,34 @@
+{
+  "policy": {
+    "entry_threshold": 7.818993126201719,
+    "exit_threshold": 1.8869786262512207,
+    "exit_nominal_quantile": 0.99,
+    "quiet_minutes": 1,
+    "max_minutes": 15,
+    "false_starts_per_1000h": 1.8435516021615643,
+    "nominal_alarm_fraction": 0.0006922920339367124,
+    "point_recall": 0.7777777777777778,
+    "detected_events": 6,
+    "selection": "Calibration only: max event recall then minute recall under <=10 false starts/1000 nominal hours and <=0.1% nominal alarm time",
+    "model": "context_nn",
+    "source": "REAL MISSION DATA"
+  },
+  "point": {
+    "tp": 413,
+    "fp": 1244,
+    "tn": 3623153,
+    "fn": 7186,
+    "precision": 0.2492456246228123,
+    "recall": 0.05434925648111594,
+    "true_positive_rate": 0.05434925648111594,
+    "false_positive_rate": 0.0003432295082464752
+  },
+  "detected_events": 19,
+  "total_events": 29,
+  "false_alerts_per_1000_nominal_hours": 1.5726753995216307,
+  "predicted_episodes": 144,
+  "true_overlapping_episodes": 49,
+  "false_nonoverlapping_episodes": 95,
+  "episodes_starting_outside_anomaly": 95,
+  "status": "Retrospective; not independent validation. Alert-state persistence does not change neural scores."
+}

@@ -1,0 +1,194 @@
+{
+  "source": "REAL MISSION DATA",
+  "winner_selected_before_later_year_scoring": "context_nn",
+  "evaluation_status": "Retrospective; these years informed prior feature-design decisions",
+  "models": {
+    "context_nn": {
+      "point": {
+        "tp": 204,
+        "fp": 414,
+        "tn": 3623983,
+        "fn": 7395,
+        "precision": 0.3300970873786408,
+        "recall": 0.026845637583892617,
+        "true_positive_rate": 0.026845637583892617,
+        "false_positive_rate": 0.0001142258974389395
+      },
+      "average_precision": 0.0659170275408202,
+      "detected_events": 19,
+      "total_events": 29,
+      "scorable_events": 28,
+      "scored_minutes": 3631996,
+      "total_minutes": 3682081,
+      "nominal_hours": 60406.61666666667,
+      "false_alerts_per_1000_nominal_hours": 2.64871646235222,
+      "median_delay_minutes_detected_only": 0.60395,
+      "predicted_episodes": 237,
+      "true_overlapping_episodes": 77,
+      "false_nonoverlapping_episodes": 160,
+      "episodes_starting_outside_anomaly": 160,
+      "yearly": [
+        {
+          "year": 2007,
+          "scored_minutes": 518595,
+          "nominal_alarm_fraction": 0.00015336917124347452
+        },
+        {
+          "year": 2008,
+          "scored_minutes": 526231,
+          "nominal_alarm_fraction": 3.4205770513485625e-05
+        },
+        {
+          "year": 2009,
+          "scored_minutes": 483862,
+          "nominal_alarm_fraction": 2.0705391269778823e-06
+        },
+        {
+          "year": 2010,
+          "scored_minutes": 525600,
+          "nominal_alarm_fraction": 0.00011293076387134315
+        },
+        {
+          "year": 2011,
+          "scored_minutes": 525600,
+          "nominal_alarm_fraction": 1.5221713774699609e-05
+        },
+        {
+          "year": 2012,
+          "scored_minutes": 526507,
+          "nominal_alarm_fraction": 1.8993244103072538e-06
+        },
+        {
+          "year": 2013,
+          "scored_minutes": 525600,
+          "nominal_alarm_fraction": 0.00047184709110073553
+        }
+      ]
+    },
+    "context_nn_augmented": {
+      "point": {
+        "tp": 20,
+        "fp": 2,
+        "tn": 3624395,
+        "fn": 7579,
+        "precision": 0.9090909090909091,
+        "recall": 0.0026319252533228057,
+        "true_positive_rate": 0.0026319252533228057,
+        "false_positive_rate": 5.518159296567125e-07
+      },
+      "average_precision": 0.07247161079546217,
+      "detected_events": 6,
+      "total_events": 29,
+      "scorable_events": 28,
+      "scored_minutes": 3631996,
+      "total_minutes": 3682081,
+      "nominal_hours": 60406.61666666667,
+      "false_alerts_per_1000_nominal_hours": 0.03310895577940275,
+      "median_delay_minutes_detected_only": 0.24412500000000004,
+      "predicted_episodes": 9,
+      "true_overlapping_episodes": 7,
+      "false_nonoverlapping_episodes": 2,
+      "episodes_starting_outside_anomaly": 2,
+      "yearly": [
+        {
+          "year": 2007,
+          "scored_minutes": 518595,
+          "nominal_alarm_fraction": 1.9413819144743613e-06
+        },
+        {
+          "year": 2008,
+          "scored_minutes": 526231,
+          "nominal_alarm_fraction": 0.0
+        },
+        {
+          "year": 2009,
+          "scored_minutes": 483862,
+          "nominal_alarm_fraction": 0.0
+        },
+        {
+          "year": 2010,
+          "scored_minutes": 525600,
+          "nominal_alarm_fraction": 1.914080743582087e-06
+        },
+        {
+          "year": 2011,
+          "scored_minutes": 525600,
+          "nominal_alarm_fraction": 0.0
+        },
+        {
+          "year": 2012,
+          "scored_minutes": 526507,
+          "nominal_alarm_fraction": 0.0
+        },
+        {
+          "year": 2013,
+          "scored_minutes": 525600,
+          "nominal_alarm_fraction": 0.0
+        }
+      ]
+    },
+    "context_tree": {
+      "point": {
+        "tp": 6,
+        "fp": 0,
+        "tn": 3624397,
+        "fn": 7593,
+        "precision": 1.0,
+        "recall": 0.0007895775759968417,
+        "true_positive_rate": 0.0007895775759968417,
+        "false_positive_rate": 0.0
+      },
+      "average_precision": 0.07056397225114343,
+      "detected_events": 2,
+      "total_events": 29,
+      "scorable_events": 28,
+      "scored_minutes": 3631996,
+      "total_minutes": 3682081,
+      "nominal_hours": 60406.61666666667,
+      "false_alerts_per_1000_nominal_hours": 0.0,
+      "median_delay_minutes_detected_only": 4750.2841,
+      "predicted_episodes": 4,
+      "true_overlapping_episodes": 4,
+      "false_nonoverlapping_episodes": 0,
+      "episodes_starting_outside_anomaly": 0,
+      "yearly": [
+        {
+          "year": 2007,
+          "scored_minutes": 518595,
+          "nominal_alarm_fraction": 0.0
+        },
+        {
+          "year": 2008,
+          "scored_minutes": 526231,
+          "nominal_alarm_fraction": 0.0
+        },
+        {
+          "year": 2009,
+          "scored_minutes": 483862,
+          "nominal_alarm_fraction": 0.0
+        },
+        {
+          "year": 2010,
+          "scored_minutes": 525600,
+          "nominal_alarm_fraction": 0.0
+        },
+        {
+          "year": 2011,
+          "scored_minutes": 525600,
+          "nominal_alarm_fraction": 0.0
+        },
+        {
+          "year": 2012,
+          "scored_minutes": 526507,
+          "nominal_alarm_fraction": 0.0
+        },
+        {
+          "year": 2013,
+          "scored_minutes": 525600,
+          "nominal_alarm_fraction": 0.0
+        }
+      ]
+    }
+  },
+  "runtime_seconds": 34.772932052612305
+}

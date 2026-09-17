@@ -1,0 +1,236 @@
+{
+  "chosen": {
+    "threshold": 7.818993126201719,
+    "dwell": 1,
+    "detected_events": 6,
+    "total_events": 8,
+    "false_starts_per_1000h": 5.127377893511851,
+    "nominal_alarm_fraction": 0.0002006782733602953
+  },
+  "trials": [
+    {
+      "threshold": 1.8869786465167773,
+      "dwell": 1,
+      "detected_events": 6,
+      "total_events": 8,
+      "false_starts_per_1000h": 121.04068487942021,
+      "nominal_alarm_fraction": 0.01000030725860036
+    },
+    {
+      "threshold": 1.8869786465167773,
+      "dwell": 3,
+      "detected_events": 0,
+      "total_events": 8,
+      "false_starts_per_1000h": 48.681284494578804,
+      "nominal_alarm_fraction": 0.006887393563700469
+    },
+    {
+      "threshold": 3.2538138091564184,
+      "dwell": 1,
+      "detected_events": 6,
+      "total_events": 8,
+      "false_starts_per_1000h": 123.86362327023011,
+      "nominal_alarm_fraction": 0.005000633720863243
+    },
+    {
+      "threshold": 3.2538138091564184,
+      "dwell": 3,
+      "detected_events": 0,
+      "total_events": 8,
+      "false_starts_per_1000h": 23.73572687783014,
+      "nominal_alarm_fraction": 0.002113363060602918
+    },
+    {
+      "threshold": 5.464870030880017,
+      "dwell": 1,
+      "detected_events": 6,
+      "total_events": 8,
+      "false_starts_per_1000h": 25.8097224302619,
+      "nominal_alarm_fraction": 0.0010005108174230989
+    },
+    {
+      "threshold": 5.464870030880017,
+      "dwell": 3,
+      "detected_events": 0,
+      "total_events": 8,
+      "false_starts_per_1000h": 4.839322955674107,
+      "nominal_alarm_fraction": 0.00041960002611698104
+    },
+    {
+      "threshold": 5.470834121704055,
+      "dwell": 1,
+      "detected_events": 6,
+      "total_events": 8,
+      "false_starts_per_1000h": 25.694500455126803,
+      "nominal_alarm_fraction": 0.0009937895355402182
+    },
+    {
+      "threshold": 5.470834121704055,
+      "dwell": 3,
+      "detected_events": 0,
+      "total_events": 8,
+      "false_starts_per_1000h": 4.781711968106558,
+      "nominal_alarm_fraction": 0.0004157592936124778
+    },
+    {
+      "threshold": 6.468395289659548,
+      "dwell": 1,
+      "detected_events": 6,
+      "total_events": 8,
+      "false_starts_per_1000h": 14.114691954049476,
+      "nominal_alarm_fraction": 0.0005002554087115494
+    },
+    {
+      "threshold": 6.468395289659548,
+      "dwell": 3,
+      "detected_events": 0,
+      "total_events": 8,
+      "false_starts_per_1000h": 2.1892175275668575,
+      "nominal_alarm_fraction": 0.00018819589272065968
+    },
+    {
+      "threshold": 6.498798972129946,
+      "dwell": 1,
+      "detected_events": 6,
+      "total_events": 8,
+      "false_starts_per_1000h": 13.94185899134683,
+      "nominal_alarm_fraction": 0.0004935341268286688
+    },
+    {
+      "threshold": 6.498798972129946,
+      "dwell": 3,
+      "detected_events": 0,
+      "total_events": 8,
+      "false_starts_per_1000h": 2.1316065399993085,
+      "nominal_alarm_fraction": 0.00018435516021615643
+    },
+    {
+      "threshold": 7.818993126201719,
+      "dwell": 1,
+      "detected_events": 6,
+      "total_events": 8,
+      "false_starts_per_1000h": 5.127377893511851,
+      "nominal_alarm_fraction": 0.0002006782733602953
+    },
+    {
+      "threshold": 7.818993126201719,
+      "dwell": 3,
+      "detected_events": 0,
+      "total_events": 8,
+      "false_starts_per_1000h": 0.8065538259456844,
+      "nominal_alarm_fraction": 9.025721385582659e-05
+    },
+    {
+      "threshold": 9.272555818651988,
+      "dwell": 1,
+      "detected_events": 5,
+      "total_events": 8,
+      "false_starts_per_1000h": 2.3620504902695045,
+      "nominal_alarm_fraction": 0.00010081922824321054
+    },
+    {
+      "threshold": 9.272555818651988,
+      "dwell": 3,
+      "detected_events": 0,
+      "total_events": 8,
+      "false_starts_per_1000h": 0.4608879005403911,
+      "nominal_alarm_fraction": 4.896933943241655e-05
+    },
+    {
+      "threshold": 9.432157923888377,
+      "dwell": 1,
+      "detected_events": 5,
+      "total_events": 8,
+      "false_starts_per_1000h": 2.3620504902695045,
+      "nominal_alarm_fraction": 9.505812948645565e-05
+    },
+    {
+      "threshold": 9.432157923888377,
+      "dwell": 3,
+      "detected_events": 0,
+      "total_events": 8,
+      "false_starts_per_1000h": 0.4608879005403911,
+      "nominal_alarm_fraction": 4.5128606927913294e-05
+    },
+    {
+      "threshold": 10.682720223618068,
+      "dwell": 1,
+      "detected_events": 5,
+      "total_events": 8,
+      "false_starts_per_1000h": 1.55549666432382,
+      "nominal_alarm_fraction": 5.088970568466818e-05
+    },
+    {
+      "threshold": 10.682720223618068,
+      "dwell": 3,
+      "detected_events": 0,
+      "total_events": 8,
+      "false_starts_per_1000h": 0.2880549378377444,
+      "nominal_alarm_fraction": 1.7283296270264666e-05
+    },
+    {
+      "threshold": 12.235474169425734,
+      "dwell": 1,
+      "detected_events": 5,
+      "total_events": 8,
+      "false_starts_per_1000h": 0.9217758010807822,
+      "nominal_alarm_fraction": 2.0163845648642108e-05
+    },
+    {
+      "threshold": 12.235474169425734,
+      "dwell": 3,
+      "detected_events": 0,
+      "total_events": 8,
+      "false_starts_per_1000h": 0.11522197513509777,
+      "nominal_alarm_fraction": 1.9203662522516296e-06
+    },
+    {
+      "threshold": 12.918540646031781,
+      "dwell": 1,
+      "detected_events": 5,
+      "total_events": 8,
+      "false_starts_per_1000h": 0.4608879005403911,
+      "nominal_alarm_fraction": 1.0562014387383962e-05
+    },
+    {
+      "threshold": 12.918540646031781,
+      "dwell": 3,
+      "detected_events": 0,
+      "total_events": 8,
+      "false_starts_per_1000h": 0.057610987567548885,
+      "nominal_alarm_fraction": 9.601831261258148e-07
+    },
+    {
+      "threshold": 40.470767974853516,
+      "dwell": 1,
+      "detected_events": 4,
+      "total_events": 8,
+      "false_starts_per_1000h": 0.0,
+      "nominal_alarm_fraction": 0.0
+    },
+    {
+      "threshold": 40.470767974853516,
+      "dwell": 3,
+      "detected_events": 0,
+      "total_events": 8,
+      "false_starts_per_1000h": 0.0,
+      "nominal_alarm_fraction": 0.0
+    },
+    {
+      "threshold": 3.4028234663852886e+38,
+      "dwell": 1,
+      "detected_events": 0,
+      "total_events": 8,
+      "false_starts_per_1000h": 0.0,
+      "nominal_alarm_fraction": 0.0
+    },
+    {
+      "threshold": 3.4028234663852886e+38,
+      "dwell": 3,
+      "detected_events": 0,
+      "total_events": 8,
+      "false_starts_per_1000h": 0.0,
+      "nominal_alarm_fraction": 0.0
+    }
+  ]
+}
