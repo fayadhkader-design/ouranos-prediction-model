@@ -1,0 +1,25 @@
+{
+  "tests_passed": 56,
+  "browser_checks": [
+    "Real telemetry page renders",
+    "Replay resets and completes playback",
+    "CSV upload and inference: 3024 of 4320 minute bins scored",
+    "Separate Mission 2 failure result visible",
+    "375px responsive results screen checked; viewport override reset"
+  ],
+  "sha256": {
+    "app.py": "e1b4e8e2e0fdd929d6bd6d7006012c05eb3225749f8d0bfb7cead52efa771d8e",
+    "src/dashboard/real_mission.py": "53c0684e27e2ff5d041849bbf27873142842cbf2d9e39f57101e8a96099812cd",
+    "src/neural/lifecycle.py": "a8583ea3e2e576552c95e708b8951956242e66b0bc70a2ef48dffa76bd2c872a",
+    "src/neural/transfer.py": "ce9635521e9c888c617f1992f7d89886fdb382c1338d59d374b771f1ae463d01",
+    "src/neural/predict_contextual.py": "04950a70fea7d380208eafb562165b4fb4039fb4e2229279f0a27c99161a7007",
+    "src/ingestion/esa_download.py": "ff51375dacb478623c00b7d5ea76d76fe87407950139cf953f02b70f0862c836",
+    "models/esa_contextual/context_nn.joblib": "af3346960aff44220c88d2341da6a58a7f2c48b7db1822a7dfd9cc92d5284724",
+    "models/esa_contextual/lifecycle.json": "eb33f1ba6af463ede849b5879c4690a7d8c28869f6d06d7608ccb09b97578706",
+    "reports/esa_contextual/lifecycle_metrics.json": "c3cec3946b34b7696d7faf289adcb39499ccbb2760b60645aadf980c11714b71",
+    "reports/esa_transfer/protocol.json": "f14e4f69ae48f9785b2cb2f8f362888bff9e9fcf387251b96eefbc28f35ed5f9",
+    "reports/esa_transfer/metrics.json": "76d8097bddd1dfef450507a4783e1134f429d6b8095ce68dfc17ada599101203",
+    "docs/REAL_MISSION_RELEASE.md": "e0de956dd5351df4a55c000d494ad84e1799290ba43f98db7679dec8e45016af"
+  },
+  "release_status": "Experimental Mission 1 integration complete; sustained detection remains weak; Mission 2 transfer failed to establish reliability"
+}
