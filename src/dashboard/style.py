@@ -53,5 +53,24 @@ footer {visibility:hidden;} [data-testid="stAppDeployButton"] {display:none;}
 [data-testid="stSidebar"] {min-width:250px;max-width:270px;}
 .stButton button {min-height:34px;}
 @media(max-width:700px) {.summary-strip {gap:1rem;} .summary-strip>div {min-width:95px;} .wordmark span {display:inline;} .block-container {padding-left:1rem;padding-right:1rem;}}
+
+/* Typography and controls: restrained Magic UI-inspired interaction treatment. */
+.stApp, .stApp p, .stApp label, .stApp input, .stApp button, .stApp h1, .stApp h2, .stApp h3 {font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;}
+.stApp p {font-size:.9rem;line-height:1.55;}
+[data-testid="stSidebar"] button p {font-size:.85rem;font-weight:500;}
+.side-brand {font-size:1.25rem;letter-spacing:-.025em;}
+.side-brand span {letter-spacing:0;line-height:1.5;}
+.summary-strip strong {font-variant-numeric:tabular-nums;letter-spacing:-.015em;}
+.stButton button {min-height:44px;transition:background-color 180ms ease,border-color 180ms ease,box-shadow 180ms ease;border-radius:6px;}
+.stButton button:hover:not(:disabled) {border-color:#86b8c8;box-shadow:0 0 0 1px #86b8c820;}
+.stButton button:active:not(:disabled) {background:#2c3742;}
+.stButton button:disabled {opacity:.45;}
+[data-testid="stIconMaterial"] {font-size:20px!important;font-variation-settings:'FILL' 0,'wght' 350;}
+.event-entry {display:flex;align-items:center;gap:.8rem;padding:.85rem .4rem;border-bottom:1px solid var(--line);}
+.event-entry strong {font-size:.88rem;font-weight:500;}
+.event-entry time {margin-left:auto;font-size:.8rem;color:var(--muted);font-variant-numeric:tabular-nums;}
+.event-dot {width:7px;height:7px;border:1px solid var(--accent);border-radius:50%;flex-shrink:0;}
+.event-entry:hover {background:#ffffff04;}
+@media(prefers-reduced-motion:reduce) {.stButton button {transition:none;}}
 </style>
 """

@@ -96,11 +96,11 @@ def jump_demo(stage, scenario):
 with st.sidebar:
     st.markdown('<div class="side-brand">Ouranos<span>Mission monitoring</span></div>', unsafe_allow_html=True)
     st.markdown("### SAT-001")
-    st.caption("Scenario controls")
+    st.caption("Playback setup")
     demo_scenario = st.selectbox("Demo scenario", ["reaction_wheel", "battery", "solar"], format_func=lambda value: {"reaction_wheel": "Reaction wheel degradation", "battery": "Battery degradation", "solar": "Solar array degradation"}[value])
-    st.button("Run scenario", type="primary", width="stretch", on_click=start_guided, args=(demo_scenario,))
+    st.button("Run scenario", icon=":material/play_arrow:", type="primary", width="stretch", on_click=start_guided, args=(demo_scenario,))
     st.caption("Degradation begins at hour 48.")
-    with st.expander("Jump to event"):
+    with st.expander("Jump to event", icon=":material/history:"):
         st.button("Healthy operations", width="stretch", on_click=jump_demo, args=("healthy", demo_scenario))
         st.button("First warning", width="stretch", on_click=jump_demo, args=("warning", demo_scenario))
         st.button("Conventional alert", width="stretch", on_click=jump_demo, args=("threshold", demo_scenario))
@@ -111,28 +111,29 @@ with st.sidebar:
         "Pause" if session.running else "Start playback",
         type="secondary",
         width="stretch",
+        icon=":material/pause:" if session.running else ":material/play_arrow:",
         on_click=toggle_playback,
     )
-    with st.expander("Manual fault injection"):
+    with st.expander("Manual fault injection", icon=":material/tune:"):
         st.button("Return to normal", on_click=reset, width="stretch")
         disabled = session.scenario != "normal" or session.cursor >= session.hours * 12
         st.markdown("#### Inject degradation")
         st.button(
-            "Battery degradation",
+            "Battery degradation", icon=":material/battery_alert:",
             on_click=inject,
             args=("battery",),
             disabled=disabled,
             width="stretch",
         )
         st.button(
-            "Reaction wheel degradation",
+            "Reaction wheel degradation", icon=":material/settings_motion_mode:",
             on_click=inject,
             args=("reaction_wheel",),
             disabled=disabled,
             width="stretch",
         )
         st.button(
-            "Solar array degradation",
+            "Solar array degradation", icon=":material/solar_power:",
             on_click=inject,
             args=("solar",),
             disabled=disabled,
@@ -160,7 +161,7 @@ with st.sidebar:
         session.seed = int(seed)
         reset()
     if not session.running:
-        if st.button("Advance 12 hours", width="stretch"):
+        if st.button("Advance 12 hours", icon=":material/skip_next:", width="stretch"):
             session.cursor = min(2880, session.cursor + 144)
             st.session_state.pop("replay_hour", None)
         hour = st.slider(
@@ -172,11 +173,11 @@ with st.sidebar:
         )
         if int(hour) != max(6, int(session.cursor / 12)):
             session.cursor = int(hour) * 12
-    st.button("Reset", on_click=reset, width="stretch")
+    st.button("Reset", icon=":material/restart_alt:", on_click=reset, width="stretch")
     st.divider()
-    st.caption("EXPERIMENTAL V0 · NOT FLIGHT QUALIFIED")
+    st.caption("Research prototype · V0")
     st.caption(
-        "Risk is an evidence index, not a probability of failure."
+        "Risk summarizes evidence. It is not a failure probability."
     )
 
 st.markdown(
@@ -236,7 +237,7 @@ def dashboard():
         )
     else:
         st.caption(
-            "No sustained warning. Readings remain consistent with the learned baseline."
+            "No active warning. Telemetry is within its learned baseline."
             if row.risk < 25
             else "WATCH · A departure is developing; the sustained-warning rule has not yet been met."
         )
@@ -260,15 +261,24 @@ def dashboard():
             f"Ouranos warning at {warning:.1f} h. Conventional limits have not alerted. Final lead time is not yet known."
         )
     overview, evidence, evaluation, data = st.tabs(
-        ["Overview", "Alert investigation", "Evaluation", "Data & model"]
+        ["Overview", "Investigation", "Evaluation", "Data & model"]
     )
     with overview:
+        with st.expander("Event timeline", icon=":material/timeline:"):
+            milestones = [("Degradation introduced", onset), ("Anomaly detected", anomaly),
+                          ("Ouranos warning", warning), ("Conventional alert", baseline),
+                          ("Scenario endpoint", failure)]
+            observed = [(label, hour) for label, hour in milestones if hour is not None]
+            if not observed:
+                st.caption("No events yet. Run a scenario to follow its warning history.")
+            for label, hour in sorted(observed, key=lambda item: item[1], reverse=True):
+                st.markdown(f'<div class="event-entry"><span class="event-dot" aria-hidden="true"></span><strong>{label}</strong><time>{hour:.1f} h</time></div>', unsafe_allow_html=True)
         a, b = st.columns([1, 1], gap="small")
         with a, st.container(border=True, key="subsystem_panel"):
             st.subheader("Risk by subsystem")
             st.plotly_chart(subsystem_comparison(result.subsystems.iloc[i]), width="stretch", key="subsystem_comparison")
         with b, st.container(border=True, key="composition_panel"):
-            st.subheader("Score contributors")
+            st.subheader("What drives the score")
             st.plotly_chart(score_composition(explanation["contributions"]), width="stretch", key="score_composition")
         left, right = st.columns([3, 1.2], gap="small")
         with left, st.container(border=True, key="history_panel"):
@@ -296,7 +306,7 @@ def dashboard():
                 "Higher = greater risk. Shared sensors can affect more than one subsystem."
             )
             st.metric(
-                "Data / context support",
+                "Data coverage & context",
                 f"{row.confidence:.0%}",
                 help=explanation["confidence_definition"],
             )

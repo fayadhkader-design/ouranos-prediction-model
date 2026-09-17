@@ -14,7 +14,7 @@ def style(fig, height=360):
         margin=dict(l=12, r=16, t=30, b=35),
         paper_bgcolor="rgba(0,0,0,0)",
         plot_bgcolor="rgba(0,0,0,0)",
-        font=dict(family="Arial, sans-serif", color="#CFDBE8", size=12),
+        font=dict(family="Inter, -apple-system, BlinkMacSystemFont, Segoe UI, sans-serif", color="#CFDBE8", size=12),
         hovermode="x unified",
         legend=dict(orientation="h", y=1.12, x=0),
         uirevision="ouranos",
