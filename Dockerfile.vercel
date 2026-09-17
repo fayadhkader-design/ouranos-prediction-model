@@ -1,0 +1,14 @@
+FROM python:3.12-slim
+ENV PYTHONUNBUFFERED=1 PYTHONDONTWRITEBYTECODE=1 PORT=80
+WORKDIR /app
+COPY requirements-deploy.txt ./
+RUN pip install --no-cache-dir -r requirements-deploy.txt
+COPY app.py ./
+COPY src ./src
+COPY models ./models
+COPY reports ./reports
+COPY .streamlit ./.streamlit
+COPY docs ./docs
+RUN mkdir -p data/raw data/processed data/simulated
+EXPOSE 80
+CMD ["sh", "-c", "exec python -m streamlit run app.py --server.address=0.0.0.0 --server.port=${PORT:-80} --server.headless=true --browser.gatherUsageStats=false"]

@@ -20,7 +20,7 @@ def style(fig, height=360):
         uirevision="ouranos",
     )
     fig.update_xaxes(
-        showgrid=False, zeroline=False, title_text="Simulation elapsed · hours"
+        showgrid=False, zeroline=False, title_text="Elapsed · hours"
     )
     fig.update_yaxes(gridcolor="#24303F", zeroline=False)
     return fig

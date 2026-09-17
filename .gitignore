@@ -13,3 +13,7 @@ data/processed/esa_supervised/
 
 data/processed/esa_contextual/
 data/processed/esa_transfer/
+
+.vercel/
+.env*
+.vercel

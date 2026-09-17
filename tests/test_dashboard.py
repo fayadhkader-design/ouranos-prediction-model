@@ -11,7 +11,7 @@ def button(at, label):
 def test_dashboard_load_inject_explain_reset():
     at = AppTest.from_file(str(APP), default_timeout=30).run()
     assert not at.exception
-    at.sidebar.radio[0].set_value("Synthetic simulation").run()
+    at.sidebar.radio[0].set_value("Demo").run()
     assert not at.exception
     assert at.session_state["session"].scenario == "normal"
     button(at, "INJECT REACTION WHEEL DEGRADATION").click().run()
@@ -19,7 +19,7 @@ def test_dashboard_load_inject_explain_reset():
     assert at.session_state["session"].scenario == "reaction_wheel"
     assert at.session_state["session"].running
     # Pause then scrub to a known late interval; charts, explanations and event metrics must render.
-    button(at, "PAUSE SIMULATION").click().run()
+    button(at, "PAUSE PLAYBACK").click().run()
     at.slider(key="replay_hour").set_value(180).run()
     assert not at.exception
     assert any("OURANOS EARLY WARNING" in s.value for s in at.success)
@@ -34,7 +34,7 @@ def test_dashboard_load_inject_explain_reset():
 def test_guided_demo_and_measured_checkpoints():
     at=AppTest.from_file(str(APP),default_timeout=30).run()
     assert not at.exception
-    assert at.sidebar.radio[0].value=='Synthetic simulation'
+    assert at.sidebar.radio[0].value=='Demo'
     button(at,'RUN GUIDED DEMO').click().run()
     assert not at.exception
     assert at.session_state['session'].scenario=='reaction_wheel'

@@ -23,8 +23,13 @@ st.set_page_config(
 )
 st.markdown(CSS, unsafe_allow_html=True)
 
-source = st.sidebar.radio("Workspace", ["Synthetic simulation", "Real ESA telemetry"], key="workspace_source")
-if source == "Real ESA telemetry":
+source = st.sidebar.radio("Workspace", ["Demo", "ESA telemetry"], key="workspace_source")
+if source == "ESA telemetry":
+    if not (ROOT / "data/processed/esa_supervised/features.npy").exists():
+        st.title("ESA telemetry workspace")
+        st.info("ESA replay is not installed on this deployment. It requires the separately prepared mission dataset and neural-model dependencies. The Demo workspace is available.")
+        st.link_button("Dataset setup instructions", "https://github.com/fayadhkader-design/ouranos-prediction-model#readme")
+        st.stop()
     try:
         from src.dashboard.real_mission import render
         render()
@@ -113,12 +118,12 @@ with st.sidebar:
         st.button("SHOW HEALTHY OPERATIONS", width="stretch", on_click=jump_demo, args=("healthy", demo_scenario))
         st.button("SHOW FIRST OURANOS WARNING", width="stretch", on_click=jump_demo, args=("warning", demo_scenario))
         st.button("SHOW CONVENTIONAL ALERT", width="stretch", on_click=jump_demo, args=("threshold", demo_scenario))
-        st.caption("Jumps to measured events in this simulation; these are not real-spacecraft predictions.")
+        st.caption("Jumps to calculated events in the selected scenario.")
     st.divider()
-    st.markdown("### Simulation control")
-    st.caption("SAT-001 / synthetic research asset")
+    st.markdown("### Playback control")
+    st.caption("SAT-001 / research asset")
     st.button(
-        "PAUSE SIMULATION" if session.running else "START SIMULATION",
+        "PAUSE PLAYBACK" if session.running else "START PLAYBACK",
         type="primary",
         width="stretch",
         on_click=toggle_playback,
@@ -148,14 +153,14 @@ with st.sidebar:
         width="stretch",
     )
     st.caption(
-        "Injection begins at the current simulation time. Reset to compare a different scenario."
+        "Injection begins at the current playback time. Reset to compare a different scenario."
     )
     st.divider()
     speed = st.selectbox(
         "Playback speed",
         options=[1, 3, 6, 12],
         index=1,
-        format_func=lambda x: f"{x} simulated hours / second",
+        format_func=lambda x: f"{x} hours / second",
     )
     seed = st.number_input(
         "Random seed",
@@ -185,14 +190,14 @@ with st.sidebar:
     st.divider()
     st.caption("EXPERIMENTAL V0 · NOT FLIGHT QUALIFIED")
     st.caption(
-        "Risk is an evidence index, not a probability of failure. This demonstration uses no real mission telemetry."
+        "Risk is an evidence index, not a probability of failure."
     )
 
 st.markdown(
-    '<div class="masthead"><span class="wordmark">OURANOS</span><span class="provenance">SIMULATED DATA</span></div>',
+    '<div class="masthead"><span class="wordmark">OURANOS</span><span class="provenance">DEMO</span></div>',
     unsafe_allow_html=True,
 )
-st.caption("SCENARIO DEMONSTRATION · Fabricated telemetry processed by a working detection pipeline. This illustrates the intended workflow, not validated real-spacecraft performance.")
+st.caption("Explore telemetry, emerging degradation, subsystem risk and warning lead time.")
 
 
 @st.fragment(run_every=1.0 if session.running else None)
@@ -247,7 +252,7 @@ def dashboard():
         )
     if failure is not None:
         st.error(
-            "SIMULATED FAILURE REACHED · This is a scripted scenario endpoint, not a predicted failure time."
+            "SCENARIO ENDPOINT REACHED · This is a scripted scenario endpoint, not a predicted failure time."
         )
     elif warning is not None:
         st.warning(
@@ -264,7 +269,7 @@ def dashboard():
             lead = baseline - warning
             if lead > 0:
                 st.success(
-                    f"OURANOS EARLY WARNING · Detected {lead:.1f} simulated hours before conventional alert."
+                    f"OURANOS EARLY WARNING · Detected {lead:.1f} hours before conventional alert."
                 )
             else:
                 st.info(
@@ -384,7 +389,7 @@ def dashboard():
             "Sustained anomaly signal": anomaly,
             "Ouranos warning": warning,
             "Conventional alert": baseline,
-            "Simulated failure": failure,
+            "Scenario endpoint": failure,
         }
         st.dataframe(
             pd.DataFrame(
@@ -421,7 +426,7 @@ def dashboard():
             report = json.loads(path.read_text())
             a, b, c = st.columns(3)
             a.metric(
-                "Detected before simulated failure",
+                "Detected before scenario endpoint",
                 f"{report['detected_before_failure']} / {report['degradation_runs']}",
             )
             b.metric(
@@ -435,7 +440,7 @@ def dashboard():
                 f"{report['false_alerts_per_1000_hours']:.3f}",
             )
             st.caption(
-                f"{report['healthy_control_runs']} healthy controls · {report['healthy_exposure_hours']:,.1f} healthy hours · seeds {report['evaluation_seed_range']} · SIMULATED DATA"
+                f"{report['healthy_control_runs']} healthy controls · {report['healthy_exposure_hours']:,.1f} healthy hours · seeds {report['evaluation_seed_range']} · DEMO"
             )
             st.dataframe(
                 pd.DataFrame(
@@ -459,7 +464,7 @@ def dashboard():
                     f"Zero observed false alerts is not proof of zero risk. Approximate one-sided 95% Poisson upper bound: {report['zero_false_alert_poisson_95pct_upper_per_1000h']:.3f} alerts / 1,000 hours; independence/stationarity assumptions apply."
                 )
             st.info(
-                "These models and scenarios share a simplified simulator. Results do not establish real-spacecraft accuracy, operational false-alarm tolerance, or the ability to predict arbitrary failures."
+                "These results describe the included scenarios. Operational accuracy and false-alarm tolerance remain unvalidated."
             )
             stress_path = ROOT / "reports/stress.json"
             if stress_path.exists():
@@ -469,7 +474,7 @@ def dashboard():
                     pd.DataFrame(stress["cases"]), hide_index=True, width="stretch"
                 )
                 st.warning(
-                    "Sensor calibration drift and unmodeled load changes triggered warnings without simulated equipment failure. The model cannot yet distinguish these causes; operational false-alarm acceptability remains unproven."
+                    "Sensor calibration drift and unmodeled load changes triggered warnings without an equipment-failure endpoint. The model cannot yet distinguish these causes; operational false-alarm acceptability remains unproven."
                 )
             st.caption(report["policy"])
             st.download_button(
@@ -484,26 +489,26 @@ def dashboard():
             )
     with data:
         st.subheader("Model provenance")
-        st.json(result.model.training_metadata)
+        st.download_button("Download model provenance · JSON", json.dumps(result.model.training_metadata, indent=2), "ouranos_model_provenance.json", "application/json")
         st.write(
-            "The current model was fitted on 30 healthy simulated days and normalized on 14 independent healthy days. Simulation truth is excluded from all model inputs."
+            "The current model was fitted on 30 healthy operating days and normalized on 14 independent healthy days. Scenario labels are excluded from all model inputs."
         )
         st.download_button(
             "Download visible telemetry · CSV",
             sim.telemetry.iloc[:cursor].to_csv(index=False),
-            "ouranos_simulated_telemetry.csv",
+            "ouranos_demo_telemetry.csv",
             "text/csv",
         )
-        st.subheader("Real mission data · optional import")
+        st.subheader("ESA telemetry · optional import")
         st.write(
-            "ESA-ADB CSV ingestion preserves anonymous channel names and separates annotations. Import previews are never scored using this synthetic model."
+            "ESA-ADB CSV ingestion preserves anonymous channel names and separates annotations. Import previews are never scored using this demo model."
         )
         uploaded = st.file_uploader("ESA preprocessed CSV", type=["csv"])
         if uploaded:
             try:
                 telemetry, labels = load_preprocessed_csv(uploaded)
                 st.success(
-                    f"REAL MISSION DATA import · {len(telemetry):,} rows. Provenance is user-supplied and unverified."
+                    f"ESA telemetry import · {len(telemetry):,} rows. Provenance is user-supplied and unverified."
                 )
                 st.dataframe(telemetry.head(100), hide_index=True, width="stretch")
                 st.caption(
