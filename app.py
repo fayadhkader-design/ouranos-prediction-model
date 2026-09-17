@@ -12,7 +12,7 @@ from src.risk.explain import explain
 from src.evaluation import first_time
 from src.config import SUBSYSTEMS, UNITS
 from src.dashboard.style import CSS
-from src.dashboard.charts import risk_chart, telemetry_chart, CYAN, AMBER, RED, MUTED
+from src.dashboard.charts import risk_chart, telemetry_chart, subsystem_comparison, score_composition, CYAN, AMBER, RED, MUTED
 from src.ingestion.esa import load_preprocessed_csv
 
 ROOT = Path(__file__).parent
@@ -263,8 +263,15 @@ def dashboard():
         ["Overview", "Alert investigation", "Evaluation", "Data & model"]
     )
     with overview:
+        a, b = st.columns([1, 1], gap="small")
+        with a, st.container(border=True, key="subsystem_panel"):
+            st.subheader("Risk by subsystem")
+            st.plotly_chart(subsystem_comparison(result.subsystems.iloc[i]), width="stretch", key="subsystem_comparison")
+        with b, st.container(border=True, key="composition_panel"):
+            st.subheader("Score contributors")
+            st.plotly_chart(score_composition(explanation["contributions"]), width="stretch", key="score_composition")
         left, right = st.columns([3, 1.2], gap="small")
-        with left, st.container(border=True):
+        with left, st.container(border=True, key="history_panel"):
             st.subheader("Risk history")
             events = [
                 ("Injection", onset, MUTED),
@@ -278,7 +285,7 @@ def dashboard():
             st.caption(
                 "Dashed horizontal line: warning policy at 45, sustained for 30 minutes. All processing uses current and past samples."
             )
-        with right, st.container(border=True):
+        with right, st.container(border=True, key="status_panel"):
             st.subheader("Subsystem risk")
             for group, value in result.subsystems.iloc[i].items():
                 st.markdown(
@@ -293,7 +300,7 @@ def dashboard():
                 f"{row.confidence:.0%}",
                 help=explanation["confidence_definition"],
             )
-        with st.container(border=True):
+        with st.container(border=True, key="telemetry_panel"):
             st.subheader("Telemetry inspection")
             c1, c2, c3 = st.columns([2, 3, 1])
             group = c1.selectbox("Subsystem", list(SUBSYSTEMS), index=3, key="plot_group")

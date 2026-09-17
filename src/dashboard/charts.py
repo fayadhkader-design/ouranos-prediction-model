@@ -2,10 +2,10 @@ import numpy as np
 import plotly.graph_objects as go
 from plotly.subplots import make_subplots
 
-CYAN = "#86B8C8"
-AMBER = "#F2BA63"
-RED = "#F0828C"
-MUTED = "#9BACBF"
+CYAN = "#3979B9"
+AMBER = "#AA6500"
+RED = "#B83442"
+MUTED = "#657382"
 
 
 def style(fig, height=360):
@@ -14,7 +14,7 @@ def style(fig, height=360):
         margin=dict(l=12, r=16, t=30, b=35),
         paper_bgcolor="rgba(0,0,0,0)",
         plot_bgcolor="rgba(0,0,0,0)",
-        font=dict(family="Arial, sans-serif", color="#CFDBE8", size=12),
+        font=dict(family="Arial, sans-serif", color="#344054", size=12),
         hovermode="x unified",
         legend=dict(orientation="h", y=1.12, x=0),
         uirevision="ouranos",
@@ -22,7 +22,7 @@ def style(fig, height=360):
     fig.update_xaxes(
         showgrid=False, zeroline=False, title_text="Elapsed · hours"
     )
-    fig.update_yaxes(gridcolor="#30353D", zeroline=False)
+    fig.update_yaxes(gridcolor="#E4E7EB", zeroline=False)
     return fig
 
 
@@ -56,7 +56,7 @@ def risk_chart(result, cursor, events):
     )
     fig.add_trace(
         go.Scatter(
-            x=x, y=s.anomaly, name="Anomaly", line=dict(color="#A5B1C2", width=1.4)
+            x=x, y=s.anomaly, name="Anomaly", line=dict(color="#78899B", width=1.4)
         ),
         row=2,
         col=1,
@@ -132,7 +132,7 @@ def telemetry_chart(result, cursor, channel, history_hours=48):
                 x=x,
                 y=expected,
                 name="Learned expected",
-                line=dict(color="#A5B1C2", width=1, dash="dot"),
+                line=dict(color="#78899B", width=1, dash="dot"),
             )
         )
     limit = result.model.config.thresholds.get(channel)
@@ -144,3 +144,24 @@ def telemetry_chart(result, cursor, channel, history_hours=48):
             annotation_text="Conventional limit",
         )
     return style(fig, 280)
+
+
+def subsystem_comparison(values):
+    fig = go.Figure(go.Bar(x=[g if g == 'ADCS' else g.title() for g in values.index],
+        y=values.values, marker_color=[RED if v >= 65 else AMBER if v >= 25 else CYAN for v in values.values],
+        text=[f'{v:.0f}' for v in values.values], textposition='outside', cliponaxis=False))
+    style(fig, 230)
+    fig.update_layout(showlegend=False, margin=dict(l=30,r=10,t=20,b=45))
+    fig.update_xaxes(title_text=None, tickfont_size=10)
+    fig.update_yaxes(range=[0,110],title_text='Risk / 100')
+    return fig
+
+
+def score_composition(contributions):
+    fig = go.Figure(go.Bar(y=[k.title() for k in contributions],x=list(contributions.values()),
+        orientation='h',marker_color=CYAN,text=[f'{v:.1f}' for v in contributions.values()],textposition='auto'))
+    style(fig,230)
+    fig.update_layout(showlegend=False,margin=dict(l=10,r=20,t=10,b=35))
+    fig.update_xaxes(title_text='Points contributing to risk',range=[0,32])
+    fig.update_yaxes(autorange='reversed',showgrid=False)
+    return fig
