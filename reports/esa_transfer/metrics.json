@@ -1,0 +1,199 @@
+{
+  "source": "REAL MISSION DATA",
+  "scope": "Previously unused ESA Mission 2 channels; frozen protocol. Positional channel mapping is not verified physical equivalence.",
+  "start": "2000-01-01T00:01:00+00:00",
+  "evaluation_start": "2000-12-31T00:01:00+00:00",
+  "end": "2003-06-30T23:59:00+00:00",
+  "scored_minutes": 1313188,
+  "evaluation_minutes": 1313279,
+  "nominal_hours": 21859.95,
+  "channel_stats": [
+    {
+      "channel": "channel_70",
+      "first": "2000-01-01T00:00:16.284000+00:00",
+      "last": "2003-06-30T23:59:52.416000+00:00",
+      "raw_rows": 7387262
+    },
+    {
+      "channel": "channel_71",
+      "first": "2000-01-01T00:00:16.284000+00:00",
+      "last": "2003-06-30T23:59:52.416000+00:00",
+      "raw_rows": 7387262
+    },
+    {
+      "channel": "channel_72",
+      "first": "2000-01-01T00:00:16.284000+00:00",
+      "last": "2003-06-30T23:59:52.416000+00:00",
+      "raw_rows": 7387262
+    },
+    {
+      "channel": "channel_78",
+      "first": "2000-01-01T00:00:16.284000+00:00",
+      "last": "2003-06-30T23:59:52.416000+00:00",
+      "raw_rows": 7387262
+    },
+    {
+      "channel": "channel_79",
+      "first": "2000-01-01T00:00:16.284000+00:00",
+      "last": "2003-06-30T23:59:52.416000+00:00",
+      "raw_rows": 7387262
+    },
+    {
+      "channel": "channel_80",
+      "first": "2000-01-01T00:00:16.284000+00:00",
+      "last": "2003-06-30T23:59:52.416000+00:00",
+      "raw_rows": 7387262
+    }
+  ],
+  "summary": [
+    {
+      "variant": "frozen_instant",
+      "events_detected": 1,
+      "events_total": 2,
+      "events_scorable": 2,
+      "false_episodes_per_1000_nominal_h": 2209.657387139495,
+      "minute_precision": 1.413647351531687e-05,
+      "minute_recall": 0.0006285355122564425,
+      "nominal_alarm_fraction": 0.05393272476225548
+    },
+    {
+      "variant": "frozen_recovery",
+      "events_detected": 1,
+      "events_total": 2,
+      "events_scorable": 2,
+      "false_episodes_per_1000_nominal_h": 2035.8692494722081,
+      "minute_precision": 6.445998646340285e-06,
+      "minute_recall": 0.0006285355122564425,
+      "nominal_alarm_fraction": 0.11827870908518394
+    },
+    {
+      "variant": "unlabeled_scale_adaptation_instant",
+      "events_detected": 0,
+      "events_total": 2,
+      "events_scorable": 2,
+      "false_episodes_per_1000_nominal_h": 932.1613269929711,
+      "minute_precision": 0.0,
+      "minute_recall": 0.0,
+      "nominal_alarm_fraction": 0.2046505138392357
+    },
+    {
+      "variant": "unlabeled_scale_adaptation_recovery",
+      "events_detected": 0,
+      "events_total": 2,
+      "events_scorable": 2,
+      "false_episodes_per_1000_nominal_h": 736.6439538974242,
+      "minute_precision": 0.0,
+      "minute_recall": 0.0,
+      "nominal_alarm_fraction": 0.3449863029573871
+    }
+  ],
+  "models": {
+    "frozen_instant": {
+      "variant": "frozen_instant",
+      "events_detected": 1,
+      "events_total": 2,
+      "events_scorable": 2,
+      "false_episodes_per_1000_nominal_h": 2209.657387139495,
+      "minute_precision": 1.413647351531687e-05,
+      "minute_recall": 0.0006285355122564425,
+      "nominal_alarm_fraction": 0.05393272476225548,
+      "point": {
+        "tp": 1,
+        "fp": 70738,
+        "tn": 1240859,
+        "fn": 1590,
+        "precision": 1.413647351531687e-05,
+        "recall": 0.0006285355122564425,
+        "true_positive_rate": 0.0006285355122564425,
+        "false_positive_rate": 0.05393272476225548
+      },
+      "predicted_episodes": 48304,
+      "true_overlapping_episodes": 1,
+      "false_nonoverlapping_episodes": 48303,
+      "episodes_starting_outside_anomaly": 48303
+    },
+    "frozen_recovery": {
+      "variant": "frozen_recovery",
+      "events_detected": 1,
+      "events_total": 2,
+      "events_scorable": 2,
+      "false_episodes_per_1000_nominal_h": 2035.8692494722081,
+      "minute_precision": 6.445998646340285e-06,
+      "minute_recall": 0.0006285355122564425,
+      "nominal_alarm_fraction": 0.11827870908518394,
+      "point": {
+        "tp": 1,
+        "fp": 155134,
+        "tn": 1156463,
+        "fn": 1590,
+        "precision": 6.445998646340285e-06,
+        "recall": 0.0006285355122564425,
+        "true_positive_rate": 0.0006285355122564425,
+        "false_positive_rate": 0.11827870908518394
+      },
+      "predicted_episodes": 44505,
+      "true_overlapping_episodes": 1,
+      "false_nonoverlapping_episodes": 44504,
+      "episodes_starting_outside_anomaly": 44504
+    },
+    "unlabeled_scale_adaptation_instant": {
+      "variant": "unlabeled_scale_adaptation_instant",
+      "events_detected": 0,
+      "events_total": 2,
+      "events_scorable": 2,
+      "false_episodes_per_1000_nominal_h": 932.1613269929711,
+      "minute_precision": 0.0,
+      "minute_recall": 0.0,
+      "nominal_alarm_fraction": 0.2046505138392357,
+      "point": {
+        "tp": 0,
+        "fp": 268419,
+        "tn": 1043178,
+        "fn": 1591,
+        "precision": 0.0,
+        "recall": 0.0,
+        "true_positive_rate": 0.0,
+        "false_positive_rate": 0.2046505138392357
+      },
+      "predicted_episodes": 20377,
+      "true_overlapping_episodes": 0,
+      "false_nonoverlapping_episodes": 20377,
+      "episodes_starting_outside_anomaly": 20377
+    },
+    "unlabeled_scale_adaptation_recovery": {
+      "variant": "unlabeled_scale_adaptation_recovery",
+      "events_detected": 0,
+      "events_total": 2,
+      "events_scorable": 2,
+      "false_episodes_per_1000_nominal_h": 736.6439538974242,
+      "minute_precision": 0.0,
+      "minute_recall": 0.0,
+      "nominal_alarm_fraction": 0.3449863029573871,
+      "point": {
+        "tp": 0,
+        "fp": 452483,
+        "tn": 859114,
+        "fn": 1591,
+        "precision": 0.0,
+        "recall": 0.0,
+        "true_positive_rate": 0.0,
+        "false_positive_rate": 0.3449863029573871
+      },
+      "predicted_episodes": 16103,
+      "true_overlapping_episodes": 0,
+      "false_nonoverlapping_episodes": 16103,
+      "episodes_starting_outside_anomaly": 16103
+    }
+  },
+  "target_scales": [
+    0.03743655979633331,
+    0.03560807555913925,
+    0.035927578806877136,
+    0.037702132016420364,
+    0.035931143909692764,
+    0.036029186099767685
+  ],
+  "conclusion": "The frozen model did not meet the illustrative transfer gate. Cross-mission reliability is not established; keep the deployed model restricted to experimental Mission 1 use.",
+  "gate_note": "Illustrative post-report interpretation: >=50% event detection, <=10 false episodes/1000h, <=0.1% nominal alarm time. Not an operator-approved acceptance standard.",
+  "no_retuning": true
+}

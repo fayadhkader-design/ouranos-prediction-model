@@ -1,0 +1,27 @@
+{
+  "mission": "ESA-Mission2",
+  "channels": [
+    "channel_70",
+    "channel_71",
+    "channel_72",
+    "channel_78",
+    "channel_79",
+    "channel_80"
+  ],
+  "selection_basis": "Metadata only: lowest-numbered group of six target channels matching Mission1 subsystem_5 and physical_unit_4 labels (group14). These anonymized labels do not prove physical equivalence.",
+  "mapping": "Ascending channel number to the six frozen Mission1 network slots; no label-driven permutation",
+  "model": "Frozen models/esa_contextual/context_nn.joblib; frozen entry and lifecycle thresholds",
+  "primary": "Frozen weights, input normalization, scales and thresholds. No Mission2 fitting.",
+  "secondary": "Same model/thresholds, only six global signal scales estimated from first 365 days without using annotation labels",
+  "evaluation": "After first 365 days through final common minute of selected channels; both variants on same full scorable coverage",
+  "metrics": [
+    "event overlap",
+    "minute precision/recall",
+    "false episodes per 1000 nominal hours",
+    "nominal time in alarm",
+    "scorable coverage"
+  ],
+  "restrictions": "No retuning or model promotion based on Mission2 results. Cross-mission transfer stress test, not proof of physical subsystem identity or operational readiness. Missingness and annotated communication gaps excluded from evaluation; labels never enter feature calculation.",
+  "model_sha256": "af3346960aff44220c88d2341da6a58a7f2c48b7db1822a7dfd9cc92d5284724",
+  "lifecycle_sha256": "eb33f1ba6af463ede849b5879c4690a7d8c28869f6d06d7608ccb09b97578706"
+}
