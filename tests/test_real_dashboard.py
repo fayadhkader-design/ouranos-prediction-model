@@ -21,6 +21,6 @@ def test_real_dashboard_replay_reset_and_synthetic_switch():
     assert app.selectbox[0].value=='id_145'
     app.sidebar.radio[0].set_value('Demo').run()
     assert not app.exception
-    assert any('Playback control' in m.value for m in app.sidebar.markdown)
+    assert any('Playback' in m.value for m in app.sidebar.markdown)
     app.sidebar.radio[0].set_value('ESA telemetry').run()
     assert not app.exception

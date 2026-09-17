@@ -110,43 +110,43 @@ def jump_demo(stage, scenario):
 
 
 with st.sidebar:
-    st.markdown("### Presentation demo")
+    st.markdown("### Scenario playback")
     demo_scenario = st.selectbox("Demo scenario", ["reaction_wheel", "battery", "solar"], format_func=lambda value: {"reaction_wheel": "Reaction wheel degradation", "battery": "Battery degradation", "solar": "Solar array degradation"}[value])
-    st.button("RUN GUIDED DEMO", type="primary", width="stretch", on_click=start_guided, args=(demo_scenario,))
+    st.button("Run scenario", type="primary", width="stretch", on_click=start_guided, args=(demo_scenario,))
     st.caption("About one minute at the default speed. Starts healthy, then injects gradual degradation at hour 48.")
-    with st.expander("Presentation checkpoints"):
-        st.button("SHOW HEALTHY OPERATIONS", width="stretch", on_click=jump_demo, args=("healthy", demo_scenario))
-        st.button("SHOW FIRST OURANOS WARNING", width="stretch", on_click=jump_demo, args=("warning", demo_scenario))
-        st.button("SHOW CONVENTIONAL ALERT", width="stretch", on_click=jump_demo, args=("threshold", demo_scenario))
+    with st.expander("Jump to event"):
+        st.button("Healthy operations", width="stretch", on_click=jump_demo, args=("healthy", demo_scenario))
+        st.button("First warning", width="stretch", on_click=jump_demo, args=("warning", demo_scenario))
+        st.button("Conventional alert", width="stretch", on_click=jump_demo, args=("threshold", demo_scenario))
         st.caption("Jumps to calculated events in the selected scenario.")
     st.divider()
-    st.markdown("### Playback control")
-    st.caption("SAT-001 / research asset")
+    st.markdown("### Playback")
+    st.caption("Manual controls")
     st.button(
-        "PAUSE PLAYBACK" if session.running else "START PLAYBACK",
+        "Pause" if session.running else "Start playback",
         type="primary",
         width="stretch",
         on_click=toggle_playback,
     )
-    st.button("NORMAL OPERATIONS", on_click=reset, width="stretch")
+    st.button("Return to normal", on_click=reset, width="stretch")
     disabled = session.scenario != "normal" or session.cursor >= session.hours * 12
     st.markdown("#### Inject degradation")
     st.button(
-        "INJECT BATTERY DEGRADATION",
+        "Battery degradation",
         on_click=inject,
         args=("battery",),
         disabled=disabled,
         width="stretch",
     )
     st.button(
-        "INJECT REACTION WHEEL DEGRADATION",
+        "Reaction wheel degradation",
         on_click=inject,
         args=("reaction_wheel",),
         disabled=disabled,
         width="stretch",
     )
     st.button(
-        "INJECT SOLAR DEGRADATION",
+        "Solar array degradation",
         on_click=inject,
         args=("solar",),
         disabled=disabled,
@@ -174,7 +174,7 @@ with st.sidebar:
         session.seed = int(seed)
         reset()
     if not session.running:
-        if st.button("ADVANCE 12 HOURS", width="stretch"):
+        if st.button("Advance 12 hours", width="stretch"):
             session.cursor = min(2880, session.cursor + 144)
             st.session_state.pop("replay_hour", None)
         hour = st.slider(
@@ -186,7 +186,7 @@ with st.sidebar:
         )
         if int(hour) != max(6, int(session.cursor / 12)):
             session.cursor = int(hour) * 12
-    st.button("RESET", on_click=reset, width="stretch")
+    st.button("Reset", on_click=reset, width="stretch")
     st.divider()
     st.caption("EXPERIMENTAL V0 · NOT FLIGHT QUALIFIED")
     st.caption(
@@ -194,10 +194,10 @@ with st.sidebar:
     )
 
 st.markdown(
-    '<div class="masthead"><span class="wordmark">OURANOS</span><span class="provenance">DEMO</span></div>',
+    '<div class="masthead"><span class="wordmark">Ouranos<span>Telemetry workbench</span></span><span class="provenance">Demo workspace · V0</span></div>',
     unsafe_allow_html=True,
 )
-st.caption("Explore telemetry, emerging degradation, subsystem risk and warning lead time.")
+st.caption("Review telemetry against expected behavior, then inspect the evidence behind each warning.")
 
 
 @st.fragment(run_every=1.0 if session.running else None)
@@ -233,11 +233,11 @@ def dashboard():
     top, clockcol = st.columns([4, 1])
     with top:
         st.markdown(
-            '<div class="asset">Asset · SAT-001 &nbsp; / &nbsp; Mission health</div>',
+            '<div class="asset">SAT-001</div>',
             unsafe_allow_html=True,
         )
         st.markdown(
-            f'<div class="score-row"><span class="score">{int(row.risk)}<small> / 100</small></span><div><div class="status" style="color:{color}">{row.status}</div><div class="quiet">Ouranos Risk Score</div></div></div>',
+            f'<div class="score-row"><span class="score">{int(row.risk)}<small> / 100</small></span><div><div class="status" style="color:{color}">{row.status.title()}</div><div class="quiet">Ouranos Risk Score</div></div></div>',
             unsafe_allow_html=True,
         )
     with clockcol:
@@ -252,15 +252,15 @@ def dashboard():
         )
     if failure is not None:
         st.error(
-            "SCENARIO ENDPOINT REACHED · This is a scripted scenario endpoint, not a predicted failure time."
+            "Scenario complete · This is a scripted scenario endpoint, not a predicted failure time."
         )
     elif warning is not None:
         st.warning(
-            f"EMERGING DEGRADATION DETECTED · Probable subsystem: {leader}. {explanation['possible_issue']}."
+            f"Sustained warning · Leading subsystem: {leader}. {explanation['possible_issue']}."
         )
     else:
         st.caption(
-            "Learning-consistent operations. Monitoring for persistent departures across correlated signals."
+            "No sustained warning. Readings remain consistent with the learned baseline."
             if row.risk < 25
             else "WATCH · A departure is developing; the sustained-warning rule has not yet been met."
         )
@@ -269,7 +269,7 @@ def dashboard():
             lead = baseline - warning
             if lead > 0:
                 st.success(
-                    f"OURANOS EARLY WARNING · Detected {lead:.1f} hours before conventional alert."
+                    f"Early warning · Detected {lead:.1f} hours before conventional alert."
                 )
             else:
                 st.info(
@@ -303,10 +303,10 @@ def dashboard():
                 "Dashed horizontal line: warning policy at 45, sustained for 30 minutes. All processing uses current and past samples."
             )
         with right:
-            st.subheader("Subsystem health")
+            st.subheader("Subsystem risk")
             for group, value in result.subsystems.iloc[i].items():
                 st.markdown(
-                    f'<div class="subsystem-row"><span>{group.title()}</span><strong>{value:.0f}</strong><div class="track"><span style="width:{value:.1f}%"></span></div></div>',
+                    f'<div class="subsystem-row"><span>{group if group == "ADCS" else group.title()}</span><strong>{value:.0f}</strong><div class="track"><span style="width:{value:.1f}%"></span></div></div>',
                     unsafe_allow_html=True,
                 )
             st.caption(
@@ -338,7 +338,7 @@ def dashboard():
         st.caption(
             f"{UNITS.get(channel, 'Engineering units')} · Healthy envelope is residual standard deviation, not a prediction confidence interval."
         )
-        with st.expander("WHY DID THE SCORE CHANGE?"):
+        with st.expander("Why did the score change?"):
             delta = pd.DataFrame(
                 {
                     "Current points": explanation["contributions"],

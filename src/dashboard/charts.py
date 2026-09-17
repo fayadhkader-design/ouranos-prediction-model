@@ -2,7 +2,7 @@ import numpy as np
 import plotly.graph_objects as go
 from plotly.subplots import make_subplots
 
-CYAN = "#54CBE3"
+CYAN = "#86B8C8"
 AMBER = "#F2BA63"
 RED = "#F0828C"
 MUTED = "#9BACBF"
@@ -22,7 +22,7 @@ def style(fig, height=360):
     fig.update_xaxes(
         showgrid=False, zeroline=False, title_text="Elapsed · hours"
     )
-    fig.update_yaxes(gridcolor="#24303F", zeroline=False)
+    fig.update_yaxes(gridcolor="#30353D", zeroline=False)
     return fig
 
 
@@ -42,7 +42,7 @@ def risk_chart(result, cursor, events):
             y=s.risk,
             name="Ouranos risk",
             line=dict(color=CYAN, width=2.3),
-            fill="tozeroy",
+            fill=None,
             fillcolor="rgba(84,203,227,.07)",
         ),
         row=1,
@@ -56,7 +56,7 @@ def risk_chart(result, cursor, events):
     )
     fig.add_trace(
         go.Scatter(
-            x=x, y=s.anomaly, name="Anomaly", line=dict(color="#96A8FC", width=1.4)
+            x=x, y=s.anomaly, name="Anomaly", line=dict(color="#A5B1C2", width=1.4)
         ),
         row=2,
         col=1,
@@ -123,7 +123,7 @@ def telemetry_chart(result, cursor, channel, history_hours=48):
                 y=expected - 3 * sigma,
                 line=dict(width=0),
                 fill="tonexty",
-                fillcolor="rgba(150,168,252,.13)",
+                fillcolor="rgba(165,177,194,.10)",
                 name="Healthy ±3 residual σ",
             )
         )
@@ -132,7 +132,7 @@ def telemetry_chart(result, cursor, channel, history_hours=48):
                 x=x,
                 y=expected,
                 name="Learned expected",
-                line=dict(color="#96A8FC", width=1, dash="dot"),
+                line=dict(color="#A5B1C2", width=1, dash="dot"),
             )
         )
     limit = result.model.config.thresholds.get(channel)

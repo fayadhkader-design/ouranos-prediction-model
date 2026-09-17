@@ -14,16 +14,16 @@ def test_dashboard_load_inject_explain_reset():
     at.sidebar.radio[0].set_value("Demo").run()
     assert not at.exception
     assert at.session_state["session"].scenario == "normal"
-    button(at, "INJECT REACTION WHEEL DEGRADATION").click().run()
+    button(at, "Reaction wheel degradation").click().run()
     assert not at.exception
     assert at.session_state["session"].scenario == "reaction_wheel"
     assert at.session_state["session"].running
     # Pause then scrub to a known late interval; charts, explanations and event metrics must render.
-    button(at, "PAUSE PLAYBACK").click().run()
+    button(at, "Pause").click().run()
     at.slider(key="replay_hour").set_value(180).run()
     assert not at.exception
-    assert any("OURANOS EARLY WARNING" in s.value for s in at.success)
-    button(at, "RESET").click().run()
+    assert any("Early warning" in s.value for s in at.success)
+    button(at, "Reset").click().run()
     assert not at.exception
     assert (
         at.session_state["session"].scenario == "normal"
@@ -35,17 +35,17 @@ def test_guided_demo_and_measured_checkpoints():
     at=AppTest.from_file(str(APP),default_timeout=30).run()
     assert not at.exception
     assert at.sidebar.radio[0].value=='Demo'
-    button(at,'RUN GUIDED DEMO').click().run()
+    button(at,'Run scenario').click().run()
     assert not at.exception
     assert at.session_state['session'].scenario=='reaction_wheel'
     assert at.session_state['session'].running
-    button(at,'SHOW FIRST OURANOS WARNING').click().run()
+    button(at,'First warning').click().run()
     assert not at.exception
     assert not at.session_state['session'].running
-    assert any('EMERGING DEGRADATION DETECTED' in x.value for x in at.warning)
-    button(at,'SHOW CONVENTIONAL ALERT').click().run()
+    assert any('Sustained warning' in x.value for x in at.warning)
+    button(at,'Conventional alert').click().run()
     assert not at.exception
-    assert any('OURANOS EARLY WARNING' in x.value for x in at.success)
-    button(at,'SHOW HEALTHY OPERATIONS').click().run()
+    assert any('Early warning' in x.value for x in at.success)
+    button(at,'Healthy operations').click().run()
     assert not at.exception
     assert at.session_state['session'].cursor<48*12
