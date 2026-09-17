@@ -14,6 +14,7 @@ p,li {text-wrap:pretty;}
 .stButton button {min-height:44px;border-radius:6px;transition:background-color 180ms ease;}
 .stButton button[kind="primary"] {color:oklch(.18 .023 250);background:var(--accent);border-color:transparent;}
 .stButton button[kind="primary"] p {color:oklch(.18 .023 250)!important;}
+[data-testid="stSlider"] p {white-space:nowrap;overflow-wrap:normal;word-break:normal;}
 [role="tab"] p {white-space:nowrap;text-wrap:nowrap;}
 [data-testid="stAlert"] p {color:var(--ink);}
 .stButton button:focus-visible {outline:2px solid var(--accent);outline-offset:3px;}
