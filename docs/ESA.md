@@ -1,5 +1,7 @@
 # Optional ESA Anomalies Dataset ingestion
 
+**Update:** The subsequent neural experiment successfully downloaded six official Mission 1 channel files and trained a real-data model. See [ESA_NEURAL.md](ESA_NEURAL.md). The earlier access limitation described below is historical. Raw mission files are local and excluded from Git.
+
 Inspected the official [ESA-ADB repository](https://github.com/kplabs-pl/ESA-ADB) and its [Mission1 preparation source](https://github.com/kplabs-pl/ESA-ADB/blob/main/notebooks/data-prep/Mission1_semisupervised_prep_from_raw.py) on 2026-09-16. The repository is benchmark code; download the separate data from [Zenodo DOI 10.5281/zenodo.12528696](https://doi.org/10.5281/zenodo.12528696). The Zenodo page rate-limited this development session; no mission archive was downloaded and no real-data performance is claimed.
 
 ## Supported layouts
