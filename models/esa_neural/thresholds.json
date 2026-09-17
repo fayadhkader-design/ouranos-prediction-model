@@ -1,0 +1,12 @@
+{
+  "neural": {
+    "threshold": 1.5221290588378906,
+    "calibration_rows": 262984,
+    "quantile": 0.995
+  },
+  "pca": {
+    "threshold": 0.8735425472259521,
+    "calibration_rows": 262984,
+    "quantile": 0.995
+  }
+}
