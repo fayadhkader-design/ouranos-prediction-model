@@ -23,22 +23,6 @@ st.set_page_config(
 )
 st.markdown(CSS, unsafe_allow_html=True)
 
-source = st.sidebar.radio("Workspace", ["Demo", "ESA telemetry"], key="workspace_source")
-if source == "ESA telemetry":
-    if not (ROOT / "data/processed/esa_supervised/features.npy").exists():
-        st.title("ESA telemetry workspace")
-        st.info("ESA replay is not installed on this deployment. It requires the separately prepared mission dataset and neural-model dependencies. The Demo workspace is available.")
-        st.link_button("Dataset setup instructions", "https://github.com/fayadhkader-design/ouranos-prediction-model#readme")
-        st.stop()
-    try:
-        from src.dashboard.real_mission import render
-        render()
-    except ImportError as exc:
-        st.error(f"Real-model dependencies are unavailable: {exc}. Install requirements-neural.txt.")
-    st.stop()
-
-
-
 @st.cache_resource
 def get_model():
     path = ROOT / "models/healthy.joblib"

@@ -11,7 +11,6 @@ def button(at, label):
 def test_dashboard_load_inject_explain_reset():
     at = AppTest.from_file(str(APP), default_timeout=30).run()
     assert not at.exception
-    at.sidebar.radio[0].set_value("Demo").run()
     assert not at.exception
     assert at.session_state["session"].scenario == "normal"
     button(at, "Reaction wheel degradation").click().run()
@@ -34,7 +33,7 @@ def test_dashboard_load_inject_explain_reset():
 def test_guided_demo_and_measured_checkpoints():
     at=AppTest.from_file(str(APP),default_timeout=30).run()
     assert not at.exception
-    assert at.sidebar.radio[0].value=='Demo'
+    assert len(at.sidebar.radio) == 0
     button(at,'Run scenario').click().run()
     assert not at.exception
     assert at.session_state['session'].scenario=='reaction_wheel'
