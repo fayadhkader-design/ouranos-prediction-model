@@ -1,0 +1,196 @@
+{
+  "entry_threshold": 7.818993126201719,
+  "exit_threshold": 1.8869786262512207,
+  "exit_nominal_quantile": 0.99,
+  "quiet_minutes": 1,
+  "max_minutes": 15,
+  "false_starts_per_1000h": 1.8435516021615643,
+  "nominal_alarm_fraction": 0.0006922920339367124,
+  "point_recall": 0.7777777777777778,
+  "detected_events": 6,
+  "selection": "Calibration only: max event recall then minute recall under <=10 false starts/1000 nominal hours and <=0.1% nominal alarm time",
+  "model": "context_nn",
+  "source": "REAL MISSION DATA",
+  "trials": [
+    {
+      "exit_threshold": -0.3148522675037384,
+      "exit_nominal_quantile": 0.9,
+      "quiet_minutes": 1,
+      "max_minutes": 15,
+      "false_starts_per_1000h": 1.4978856767562712,
+      "nominal_alarm_fraction": 0.0008027130934411812,
+      "point_recall": 0.7777777777777778,
+      "detected_events": 6
+    },
+    {
+      "exit_threshold": -0.3148522675037384,
+      "exit_nominal_quantile": 0.9,
+      "quiet_minutes": 1,
+      "max_minutes": 60,
+      "false_starts_per_1000h": 0.9217758010807822,
+      "nominal_alarm_fraction": 0.00154397446681031,
+      "point_recall": 0.7777777777777778,
+      "detected_events": 6
+    },
+    {
+      "exit_threshold": -0.3148522675037384,
+      "exit_nominal_quantile": 0.9,
+      "quiet_minutes": 1,
+      "max_minutes": 360,
+      "false_starts_per_1000h": 0.8065538259456844,
+      "nominal_alarm_fraction": 0.004494617213394939,
+      "point_recall": 0.7777777777777778,
+      "detected_events": 6
+    },
+    {
+      "exit_threshold": -0.3148522675037384,
+      "exit_nominal_quantile": 0.9,
+      "quiet_minutes": 5,
+      "max_minutes": 15,
+      "false_starts_per_1000h": 1.4978856767562712,
+      "nominal_alarm_fraction": 0.0008228769390898232,
+      "point_recall": 0.7777777777777778,
+      "detected_events": 6
+    },
+    {
+      "exit_threshold": -0.3148522675037384,
+      "exit_nominal_quantile": 0.9,
+      "quiet_minutes": 5,
+      "max_minutes": 60,
+      "false_starts_per_1000h": 0.9217758010807822,
+      "nominal_alarm_fraction": 0.0016380724131706398,
+      "point_recall": 0.7777777777777778,
+      "detected_events": 6
+    },
+    {
+      "exit_threshold": -0.3148522675037384,
+      "exit_nominal_quantile": 0.9,
+      "quiet_minutes": 5,
+      "max_minutes": 360,
+      "false_starts_per_1000h": 0.8065538259456844,
+      "nominal_alarm_fraction": 0.005197471261719035,
+      "point_recall": 0.7777777777777778,
+      "detected_events": 6
+    },
+    {
+      "exit_threshold": -0.3148522675037384,
+      "exit_nominal_quantile": 0.9,
+      "quiet_minutes": 15,
+      "max_minutes": 15,
+      "false_starts_per_1000h": 1.4978856767562712,
+      "nominal_alarm_fraction": 0.0008334389534772072,
+      "point_recall": 0.7777777777777778,
+      "detected_events": 6
+    },
+    {
+      "exit_threshold": -0.3148522675037384,
+      "exit_nominal_quantile": 0.9,
+      "quiet_minutes": 15,
+      "max_minutes": 60,
+      "false_starts_per_1000h": 0.9217758010807822,
+      "nominal_alarm_fraction": 0.001783060065215638,
+      "point_recall": 0.7777777777777778,
+      "detected_events": 6
+    },
+    {
+      "exit_threshold": -0.3148522675037384,
+      "exit_nominal_quantile": 0.9,
+      "quiet_minutes": 15,
+      "max_minutes": 360,
+      "false_starts_per_1000h": 0.7489428383781356,
+      "nominal_alarm_fraction": 0.0054192735638540985,
+      "point_recall": 0.7777777777777778,
+      "detected_events": 6
+    },
+    {
+      "exit_threshold": 1.8869786262512207,
+      "exit_nominal_quantile": 0.99,
+      "quiet_minutes": 1,
+      "max_minutes": 15,
+      "false_starts_per_1000h": 1.8435516021615643,
+      "nominal_alarm_fraction": 0.0006922920339367124,
+      "point_recall": 0.7777777777777778,
+      "detected_events": 6
+    },
+    {
+      "exit_threshold": 1.8869786262512207,
+      "exit_nominal_quantile": 0.99,
+      "quiet_minutes": 1,
+      "max_minutes": 60,
+      "false_starts_per_1000h": 1.3826637016211731,
+      "nominal_alarm_fraction": 0.0010917282144050514,
+      "point_recall": 0.7777777777777778,
+      "detected_events": 6
+    },
+    {
+      "exit_threshold": 1.8869786262512207,
+      "exit_nominal_quantile": 0.99,
+      "quiet_minutes": 1,
+      "max_minutes": 360,
+      "false_starts_per_1000h": 1.3250527140536243,
+      "nominal_alarm_fraction": 0.0016035058206301106,
+      "point_recall": 0.7777777777777778,
+      "detected_events": 6
+    },
+    {
+      "exit_threshold": 1.8869786262512207,
+      "exit_nominal_quantile": 0.99,
+      "quiet_minutes": 5,
+      "max_minutes": 15,
+      "false_starts_per_1000h": 1.4978856767562712,
+      "nominal_alarm_fraction": 0.0008017529103150553,
+      "point_recall": 0.7777777777777778,
+      "detected_events": 6
+    },
+    {
+      "exit_threshold": 1.8869786262512207,
+      "exit_nominal_quantile": 0.99,
+      "quiet_minutes": 5,
+      "max_minutes": 60,
+      "false_starts_per_1000h": 0.9217758010807822,
+      "nominal_alarm_fraction": 0.0015151689730265355,
+      "point_recall": 0.7777777777777778,
+      "detected_events": 6
+    },
+    {
+      "exit_threshold": 1.8869786262512207,
+      "exit_nominal_quantile": 0.99,
+      "quiet_minutes": 5,
+      "max_minutes": 360,
+      "false_starts_per_1000h": 0.8641648135132333,
+      "nominal_alarm_fraction": 0.004188318796160804,
+      "point_recall": 0.7777777777777778,
+      "detected_events": 6
+    },
+    {
+      "exit_threshold": 1.8869786262512207,
+      "exit_nominal_quantile": 0.99,
+      "quiet_minutes": 15,
+      "max_minutes": 15,
+      "false_starts_per_1000h": 1.4978856767562712,
+      "nominal_alarm_fraction": 0.0008334389534772072,
+      "point_recall": 0.7777777777777778,
+      "detected_events": 6
+    },
+    {
+      "exit_threshold": 1.8869786262512207,
+      "exit_nominal_quantile": 0.99,
+      "quiet_minutes": 15,
+      "max_minutes": 60,
+      "false_starts_per_1000h": 0.9217758010807822,
+      "nominal_alarm_fraction": 0.0016150280181436204,
+      "point_recall": 0.7777777777777778,
+      "detected_events": 6
+    },
+    {
+      "exit_threshold": 1.8869786262512207,
+      "exit_nominal_quantile": 0.99,
+      "quiet_minutes": 15,
+      "max_minutes": 360,
+      "false_starts_per_1000h": 0.8065538259456844,
+      "nominal_alarm_fraction": 0.004490776480890435,
+      "point_recall": 0.7777777777777778,
+      "detected_events": 6
+    }
+  ]
+}

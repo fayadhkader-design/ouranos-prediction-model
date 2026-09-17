@@ -1,0 +1,43 @@
+{
+  "winner": "context_nn",
+  "candidates": {
+    "context_nn": {
+      "threshold": 7.818993126201719,
+      "dwell": 1,
+      "detected_events": 6,
+      "total_events": 8,
+      "false_starts_per_1000h": 5.127377893511851,
+      "nominal_alarm_fraction": 0.0002006782733602953
+    },
+    "context_nn_augmented": {
+      "threshold": 23.26334571838379,
+      "dwell": 1,
+      "detected_events": 5,
+      "total_events": 8,
+      "false_starts_per_1000h": 0.0,
+      "nominal_alarm_fraction": 0.0
+    },
+    "context_tree": {
+      "threshold": 0.9967265129089355,
+      "dwell": 1,
+      "detected_events": 0,
+      "total_events": 8,
+      "false_starts_per_1000h": 0.0,
+      "nominal_alarm_fraction": 0.0
+    }
+  },
+  "config": {
+    "fast": 60,
+    "slow": 1440,
+    "coverage": 0.9,
+    "scale_floor": 0.05,
+    "seed": 2029,
+    "false_starts_budget": 10.0,
+    "nominal_alarm_budget": 0.001,
+    "train_end": "2004-01-01",
+    "validation_end": "2005-01-01",
+    "calibration_end": "2007-01-01"
+  },
+  "score_is_failure_probability": false,
+  "source": "REAL MISSION DATA"
+}
