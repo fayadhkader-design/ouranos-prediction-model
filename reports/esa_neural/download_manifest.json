@@ -1,0 +1,78 @@
+{
+  "source": "REAL MISSION DATA",
+  "record_url": "https://zenodo.org/api/records/12528696",
+  "doi": "10.5281/zenodo.12528696",
+  "archive": {
+    "id": "34656b03-8808-4bd9-a991-214ca1d5478a",
+    "key": "ESA-Mission1.zip",
+    "size": 3776246054,
+    "checksum": "md5:80750189d171f5f398fb3d96c49df12b",
+    "links": {
+      "self": "https://zenodo.org/api/records/12528696/files/ESA-Mission1.zip/content"
+    }
+  },
+  "selection": "Official Mission 1 six-channel subset, channels 41\u201346",
+  "integrity": "ZIP member CRC32 and local SHA256; full archive MD5 not verified for partial download",
+  "members": [
+    {
+      "path": "ESA-Mission1/channels.csv",
+      "bytes": 3542,
+      "crc32": "c71ef823",
+      "sha256": "92fe4582f1907e42129a764e52afddaef02de8e555e4c47302acd4225222abbf"
+    },
+    {
+      "path": "ESA-Mission1/labels.csv",
+      "bytes": 245564,
+      "crc32": "372f9603",
+      "sha256": "1564d630f1ec1387d699ec81531ce57118051a220c8b7cba050a446a652b9082"
+    },
+    {
+      "path": "ESA-Mission1/anomaly_types.csv",
+      "bytes": 13299,
+      "crc32": "cb4fc8e2",
+      "sha256": "e0cadee4ee9697c5ca8d4f9e81067454d7d7a00d063ee0de33cbc77660eec8bc"
+    },
+    {
+      "path": "ESA-Mission1/telecommands.csv",
+      "bytes": 13176,
+      "crc32": "7b1d4b88",
+      "sha256": "32519ed13c68067cfafeef0df9ac5f04aeaf534cf03e526ce9e76c02c2a5c09d"
+    },
+    {
+      "path": "ESA-Mission1/channels/channel_41.zip",
+      "bytes": 83216184,
+      "crc32": "d34dc516",
+      "sha256": "32cabd39524c5c5fe972255f158e0ba933cdb0609efe88782e6217f3782d20d0"
+    },
+    {
+      "path": "ESA-Mission1/channels/channel_42.zip",
+      "bytes": 85752416,
+      "crc32": "2313badc",
+      "sha256": "ef01d2afdfd6926f69fc7b427eaa63565a7b218d81317027420d22f2aa34854a"
+    },
+    {
+      "path": "ESA-Mission1/channels/channel_43.zip",
+      "bytes": 83202471,
+      "crc32": "b524a6b0",
+      "sha256": "e664ea5b64ccea49796f32c9fd97cb6584c16d837442aebb2a6926c6f7413289"
+    },
+    {
+      "path": "ESA-Mission1/channels/channel_44.zip",
+      "bytes": 85209141,
+      "crc32": "71bcfad9",
+      "sha256": "b5fa421b1e5828441a0e61fe489fb3fca3036db2de8c6fbb599be39acdd5de18"
+    },
+    {
+      "path": "ESA-Mission1/channels/channel_45.zip",
+      "bytes": 83395435,
+      "crc32": "1213e465",
+      "sha256": "d98bce78727df6125ad82de764af68c20027b85ef3fe64c8b3dc402d3c58d57e"
+    },
+    {
+      "path": "ESA-Mission1/channels/channel_46.zip",
+      "bytes": 85564289,
+      "crc32": "a03ec0b7",
+      "sha256": "9cf536c62cf3db9e54c0da0c1b9b2988fb92b21e3652da472ff3f5725799ea08"
+    }
+  ]
+}

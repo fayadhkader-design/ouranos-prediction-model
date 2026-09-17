@@ -1,0 +1,15 @@
+{
+  "models/esa_neural/autoencoder.pt": "a9be444c52cbbed5324ee597a39202761e070166329800eda7b844bb57d892d0",
+  "models/esa_neural/model_card.json": "8f02a25765df5bc32b974a96601544530f28121f0f44ed3d77365fc8a6142b41",
+  "models/esa_neural/thresholds.json": "757a3128eded7ca66f8380f42aa1885bfe97484a9f3a6d13bfde0cc26ccfc846",
+  "models/esa_neural/pca_baseline.joblib": "53e7a34342cb75152ac097bf31ad744e2ded49781748e4441b4e4a81481e62ee",
+  "reports/esa_neural/metrics.json": "b7c2373ba510a63c0bea102a5f10a4a4248788b571e664131f49dcfe711f8356",
+  "reports/esa_neural/download_manifest.json": "c43e27bf958df7bf0f2d9f1de1de696b580d7ee846e8a5a78033e0e017912041",
+  "reports/esa_neural/pca_events.csv": "63a1636bdcebbae3e65b0ed2d11bce76c53ab7860aa04416acc493edc8fcf017",
+  "reports/esa_neural/hourly_overview.csv": "f5c485bd93048da212753dd6f9cff3c93b601efe73bcbaac1457ac9123135b90",
+  "reports/esa_neural/training.json": "8f02a25765df5bc32b974a96601544530f28121f0f44ed3d77365fc8a6142b41",
+  "reports/esa_neural/training_results.html": "0a3573e31b1196ba22568e4ddc44ec94d97e4da322ce39516353d6e2b0f19b1b",
+  "reports/esa_neural/neural_events.csv": "84d086a5ee391fd2517a4230eaf6f172804e97ab6de26e8d59343640c75f0e40",
+  "reports/esa_neural/environment.json": "75f8c90871a6ce3d8c4f53eb0174fa358c9227151f7e1cabce47d64b3442f188",
+  "reports/esa_neural/training_history.json": "848b4407be97d3b03be609f22cefedcd335879fd7918ffc3892e959d404f0804"
+}

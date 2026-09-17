@@ -1,0 +1,142 @@
+{
+  "source": "REAL MISSION DATA",
+  "architecture": "384 \u2192 64 GELU \u2192 12 \u2192 64 GELU \u2192 384 temporal autoencoder",
+  "parameters": 51212,
+  "device": "CPU",
+  "training_nominal_rows": 6740748,
+  "eligible_training_windows": 841811,
+  "sampled_training_windows": 60000,
+  "sampled_validation_windows": 12000,
+  "best_epoch": 16,
+  "epochs_run": 22,
+  "best_validation_loss": 0.034004213869571684,
+  "config": {
+    "mission": "ESA-Mission1",
+    "channels": [
+      "channel_41",
+      "channel_42",
+      "channel_43",
+      "channel_44",
+      "channel_45",
+      "channel_46"
+    ],
+    "cadence_seconds": 30,
+    "max_hold_seconds": 300,
+    "window": 64,
+    "train_stride": 8,
+    "train_end": "2006-07-01T00:00:00Z",
+    "validation_end": "2006-10-01T00:00:00Z",
+    "calibration_end": "2007-01-01T00:00:00Z",
+    "hidden": 64,
+    "bottleneck": 12,
+    "max_train_windows": 60000,
+    "max_validation_windows": 12000,
+    "batch_size": 512,
+    "max_epochs": 40,
+    "patience": 6,
+    "learning_rate": 0.001,
+    "threshold_quantile": 0.995,
+    "warning_dwell": 3,
+    "seed": 2026
+  },
+  "elapsed_seconds": 3.4981359580997378,
+  "test_used_for_training_or_selection": false,
+  "loss": "Smooth L1 reconstruction loss over each full trailing window",
+  "inference_score": "Maximum squared standardized reconstruction residual across six channels at the window terminal sample",
+  "training_filter": "Exclude all annotated anomalies, rare events and communication gaps; require complete windows within split",
+  "preparation": {
+    "source": "REAL MISSION DATA",
+    "doi": "10.5281/zenodo.12528696",
+    "config": {
+      "mission": "ESA-Mission1",
+      "channels": [
+        "channel_41",
+        "channel_42",
+        "channel_43",
+        "channel_44",
+        "channel_45",
+        "channel_46"
+      ],
+      "cadence_seconds": 30,
+      "max_hold_seconds": 300,
+      "window": 64,
+      "train_stride": 8,
+      "train_end": "2006-07-01T00:00:00Z",
+      "validation_end": "2006-10-01T00:00:00Z",
+      "calibration_end": "2007-01-01T00:00:00Z",
+      "hidden": 64,
+      "bottleneck": 12,
+      "max_train_windows": 60000,
+      "max_validation_windows": 12000,
+      "batch_size": 512,
+      "max_epochs": 40,
+      "patience": 6,
+      "learning_rate": 0.001,
+      "threshold_quantile": 0.995,
+      "warning_dwell": 3,
+      "seed": 2026
+    },
+    "rows": 14728319,
+    "start": "2000-01-01T00:00:30+00:00",
+    "end": "2013-12-31T23:59:30+00:00",
+    "channel_stats": [
+      {
+        "channel": "channel_41",
+        "raw_rows": 15381169,
+        "first": "2000-01-01T00:00:16.353000+00:00",
+        "last": "2013-12-31T23:59:39.657000+00:00",
+        "missing_fraction": 0.00011012797862403714,
+        "sha256": "32cabd39524c5c5fe972255f158e0ba933cdb0609efe88782e6217f3782d20d0"
+      },
+      {
+        "channel": "channel_42",
+        "raw_rows": 15381169,
+        "first": "2000-01-01T00:00:16.353000+00:00",
+        "last": "2013-12-31T23:59:39.657000+00:00",
+        "missing_fraction": 0.00011012797862403714,
+        "sha256": "ef01d2afdfd6926f69fc7b427eaa63565a7b218d81317027420d22f2aa34854a"
+      },
+      {
+        "channel": "channel_43",
+        "raw_rows": 15381169,
+        "first": "2000-01-01T00:00:16.353000+00:00",
+        "last": "2013-12-31T23:59:39.657000+00:00",
+        "missing_fraction": 0.00011012797862403714,
+        "sha256": "e664ea5b64ccea49796f32c9fd97cb6584c16d837442aebb2a6926c6f7413289"
+      },
+      {
+        "channel": "channel_44",
+        "raw_rows": 15381169,
+        "first": "2000-01-01T00:00:16.353000+00:00",
+        "last": "2013-12-31T23:59:39.657000+00:00",
+        "missing_fraction": 0.00011012797862403714,
+        "sha256": "b5fa421b1e5828441a0e61fe489fb3fca3036db2de8c6fbb599be39acdd5de18"
+      },
+      {
+        "channel": "channel_45",
+        "raw_rows": 15381169,
+        "first": "2000-01-01T00:00:16.353000+00:00",
+        "last": "2013-12-31T23:59:39.657000+00:00",
+        "missing_fraction": 0.00011012797862403714,
+        "sha256": "d98bce78727df6125ad82de764af68c20027b85ef3fe64c8b3dc402d3c58d57e"
+      },
+      {
+        "channel": "channel_46",
+        "raw_rows": 15381169,
+        "first": "2000-01-01T00:00:16.353000+00:00",
+        "last": "2013-12-31T23:59:39.657000+00:00",
+        "missing_fraction": 0.00011012797862403714,
+        "sha256": "9cf536c62cf3db9e54c0da0c1b9b2988fb92b21e3652da472ff3f5725799ea08"
+      }
+    ],
+    "split_rows": {
+      "train": 6834239,
+      "validation": 264960,
+      "calibration": 264960,
+      "test": 7364160
+    },
+    "annotated_event_ids": 118,
+    "label_policy": "Anomaly=1, rare nominal event=2, communication gap=4; interval overlaps grid bin; no label in model inputs",
+    "resampling": "Causal zero-order hold, bounded to 300 seconds; no backfill or interpolation from the future"
+  }
+}
