@@ -23,6 +23,16 @@ st.set_page_config(
 )
 st.markdown(CSS, unsafe_allow_html=True)
 
+source = st.sidebar.radio("Workspace", ["Synthetic simulation", "Real ESA telemetry"], key="workspace_source")
+if source == "Real ESA telemetry":
+    try:
+        from src.dashboard.real_mission import render
+        render()
+    except ImportError as exc:
+        st.error(f"Real-model dependencies are unavailable: {exc}. Install requirements-neural.txt.")
+    st.stop()
+
+
 
 @st.cache_resource
 def get_model():
@@ -68,7 +78,43 @@ def inject(scenario):
     st.session_state.pop("replay_hour", None)
 
 
+def start_guided(scenario):
+    session.reset()
+    session.seed = 42
+    session.scenario = scenario
+    session.cursor = 36 * 12
+    session.running = True
+    st.session_state.pop("replay_hour", None)
+    st.session_state.plot_group = {"battery": "BATTERY", "reaction_wheel": "ADCS", "solar": "POWER"}[scenario]
+    st.session_state.plot_channel = {"battery": "battery_capacity", "reaction_wheel": "reaction_wheel_2_current", "solar": "solar_array_output"}[scenario]
+
+
+def jump_demo(stage, scenario):
+    if session.scenario == "normal" or session.scenario != scenario:
+        start_guided(scenario)
+    session.running = False
+    sim, result = get_run(session.scenario, session.seed, session.onset_hours, session.duration_hours)
+    if stage == "healthy":
+        session.cursor = max(72, int(session.onset_hours * 12) - 1)
+    else:
+        mask = result.scores.warning if stage == "warning" else result.baseline.any(axis=1)
+        positions = mask.to_numpy().nonzero()[0]
+        if len(positions):
+            session.cursor = int(positions[0]) + 1
+    st.session_state.pop("replay_hour", None)
+
+
 with st.sidebar:
+    st.markdown("### Presentation demo")
+    demo_scenario = st.selectbox("Demo scenario", ["reaction_wheel", "battery", "solar"], format_func=lambda value: {"reaction_wheel": "Reaction wheel degradation", "battery": "Battery degradation", "solar": "Solar array degradation"}[value])
+    st.button("RUN GUIDED DEMO", type="primary", width="stretch", on_click=start_guided, args=(demo_scenario,))
+    st.caption("About one minute at the default speed. Starts healthy, then injects gradual degradation at hour 48.")
+    with st.expander("Presentation checkpoints"):
+        st.button("SHOW HEALTHY OPERATIONS", width="stretch", on_click=jump_demo, args=("healthy", demo_scenario))
+        st.button("SHOW FIRST OURANOS WARNING", width="stretch", on_click=jump_demo, args=("warning", demo_scenario))
+        st.button("SHOW CONVENTIONAL ALERT", width="stretch", on_click=jump_demo, args=("threshold", demo_scenario))
+        st.caption("Jumps to measured events in this simulation; these are not real-spacecraft predictions.")
+    st.divider()
     st.markdown("### Simulation control")
     st.caption("SAT-001 / synthetic research asset")
     st.button(
@@ -133,7 +179,8 @@ with st.sidebar:
             value=max(6, int(session.cursor / 12)),
             key="replay_hour",
         )
-        session.cursor = int(hour) * 12
+        if int(hour) != max(6, int(session.cursor / 12)):
+            session.cursor = int(hour) * 12
     st.button("RESET", on_click=reset, width="stretch")
     st.divider()
     st.caption("EXPERIMENTAL V0 · NOT FLIGHT QUALIFIED")
@@ -145,6 +192,7 @@ st.markdown(
     '<div class="masthead"><span class="wordmark">OURANOS</span><span class="provenance">SIMULATED DATA</span></div>',
     unsafe_allow_html=True,
 )
+st.caption("SCENARIO DEMONSTRATION · Fabricated telemetry processed by a working detection pipeline. This illustrates the intended workflow, not validated real-spacecraft performance.")
 
 
 @st.fragment(run_every=1.0 if session.running else None)
