@@ -1,0 +1,155 @@
+{
+  "source": "REAL MISSION DATA",
+  "threshold_frozen": 0.99,
+  "seed": 921,
+  "reference_sample": 30000,
+  "yearly": [
+    {
+      "year": 2000,
+      "nominal_minutes": 516560,
+      "sample_minutes": 20000,
+      "alert_fraction": 0.0,
+      "fraction_is_sampled": true,
+      "unannotated_sample_alert_fraction": 0.0,
+      "score_median_sample": 0.26936912536621094,
+      "any_feature_outside_training_1_99_sample": 0.2905
+    },
+    {
+      "year": 2001,
+      "nominal_minutes": 523491,
+      "sample_minutes": 20000,
+      "alert_fraction": 0.0099,
+      "fraction_is_sampled": true,
+      "unannotated_sample_alert_fraction": 0.010103071742014491,
+      "score_median_sample": 0.1905921995639801,
+      "any_feature_outside_training_1_99_sample": 0.29375
+    },
+    {
+      "year": 2002,
+      "nominal_minutes": 520731,
+      "sample_minutes": 20000,
+      "alert_fraction": 0.0,
+      "fraction_is_sampled": true,
+      "unannotated_sample_alert_fraction": 0.0,
+      "score_median_sample": 0.15713512897491455,
+      "any_feature_outside_training_1_99_sample": 0.2218
+    },
+    {
+      "year": 2003,
+      "nominal_minutes": 523604,
+      "sample_minutes": 20000,
+      "alert_fraction": 0.0,
+      "fraction_is_sampled": true,
+      "unannotated_sample_alert_fraction": 0.0,
+      "score_median_sample": 0.16206865012645721,
+      "any_feature_outside_training_1_99_sample": 0.2209
+    },
+    {
+      "year": 2004,
+      "nominal_minutes": 525641,
+      "sample_minutes": 20000,
+      "alert_fraction": 0.0,
+      "fraction_is_sampled": true,
+      "unannotated_sample_alert_fraction": 0.0,
+      "score_median_sample": 0.17196810245513916,
+      "any_feature_outside_training_1_99_sample": 0.2713
+    },
+    {
+      "year": 2005,
+      "nominal_minutes": 520663,
+      "sample_minutes": 20000,
+      "alert_fraction": 1.728565309998982e-05,
+      "fraction_is_sampled": false,
+      "unannotated_sample_alert_fraction": 5.00175061271445e-05,
+      "score_median_sample": 0.1901508867740631,
+      "any_feature_outside_training_1_99_sample": 0.2784
+    },
+    {
+      "year": 2006,
+      "nominal_minutes": 525596,
+      "sample_minutes": 20000,
+      "alert_fraction": 2.473382598041081e-05,
+      "fraction_is_sampled": false,
+      "unannotated_sample_alert_fraction": 0.0,
+      "score_median_sample": 0.19494138658046722,
+      "any_feature_outside_training_1_99_sample": 0.2682
+    },
+    {
+      "year": 2007,
+      "nominal_minutes": 516401,
+      "sample_minutes": 20000,
+      "alert_fraction": 0.0005499602053442964,
+      "fraction_is_sampled": false,
+      "unannotated_sample_alert_fraction": 0.0005015799769273211,
+      "score_median_sample": 0.259080171585083,
+      "any_feature_outside_training_1_99_sample": 0.34845
+    },
+    {
+      "year": 2008,
+      "nominal_minutes": 526423,
+      "sample_minutes": 20000,
+      "alert_fraction": 0.0035275814316623705,
+      "fraction_is_sampled": false,
+      "unannotated_sample_alert_fraction": 0.003950197509875494,
+      "score_median_sample": 0.4677335023880005,
+      "any_feature_outside_training_1_99_sample": 0.41495
+    },
+    {
+      "year": 2009,
+      "nominal_minutes": 484194,
+      "sample_minutes": 20000,
+      "alert_fraction": 0.5041016617306286,
+      "fraction_is_sampled": false,
+      "unannotated_sample_alert_fraction": 0.503675918979745,
+      "score_median_sample": 0.9905568361282349,
+      "any_feature_outside_training_1_99_sample": 0.68035
+    },
+    {
+      "year": 2010,
+      "nominal_minutes": 522444,
+      "sample_minutes": 20000,
+      "alert_fraction": 0.7988817940295994,
+      "fraction_is_sampled": false,
+      "unannotated_sample_alert_fraction": 0.7984697704655699,
+      "score_median_sample": 0.9985249042510986,
+      "any_feature_outside_training_1_99_sample": 0.8698
+    },
+    {
+      "year": 2011,
+      "nominal_minutes": 525565,
+      "sample_minutes": 20000,
+      "alert_fraction": 0.9157497169712595,
+      "fraction_is_sampled": false,
+      "unannotated_sample_alert_fraction": 0.9185767190471424,
+      "score_median_sample": 0.9992285966873169,
+      "any_feature_outside_training_1_99_sample": 0.91485
+    },
+    {
+      "year": 2012,
+      "nominal_minutes": 526772,
+      "sample_minutes": 20000,
+      "alert_fraction": 0.6911415185317367,
+      "fraction_is_sampled": false,
+      "unannotated_sample_alert_fraction": 0.69574351022858,
+      "score_median_sample": 0.9982870221138,
+      "any_feature_outside_training_1_99_sample": 0.79635
+    },
+    {
+      "year": 2013,
+      "nominal_minutes": 525594,
+      "sample_minutes": 20000,
+      "alert_fraction": 0.013645513457155143,
+      "fraction_is_sampled": false,
+      "unannotated_sample_alert_fraction": 0.01544913994478658,
+      "score_median_sample": 0.54408198595047,
+      "any_feature_outside_training_1_99_sample": 0.485
+    }
+  ],
+  "limitations": [
+    "Retrospective diagnostic; no fresh validation",
+    "Negative means no Anomaly label; separate completely unannotated check included",
+    "Channel replacement can create unrealistic combinations; not physical causal attribution",
+    "Feature summaries use sampled clipped model inputs",
+    "No model or threshold changed"
+  ]
+}
