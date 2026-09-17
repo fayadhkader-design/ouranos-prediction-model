@@ -6,6 +6,24 @@ Ouranos learns healthy operating relationships, detects departures, measures per
 
 **V0 is an experimental predictive-maintenance prototype, not flight-qualified spacecraft operations software.** Its risk score is not a calibrated probability of failure. It does not predict arbitrary satellite failures or provide validated remaining useful life.
 
+## Current application: real telemetry and synthetic simulation
+
+The dashboard opens **Synthetic simulation** for presentation, with a one-click guided demo and measured-event checkpoints. See [the presentation guide](docs/PRESENTATION_DEMO.md). Switch to **Real ESA telemetry** for actual saved-network inference, event replay, alert recovery and CSV scoring. Install `requirements-neural.txt` for the real workspace.
+
+Mission 1 recovery alerts detect **19/29 events** with **1.57 false episodes per 1,000 nominal hours**, but flag only **5.43% of anomalous minutes**. A frozen transfer test on previously unused Mission 2 channels detected **1/2 events** with approximately **2,036 false episodes per 1,000 nominal hours**: cross-mission reliability is **not established**.
+
+See [the current release and honest validation results](docs/REAL_MISSION_RELEASE.md). Earlier sections below document historical experiments and the original synthetic pipeline.
+
+## Supervised real-data follow-up (V2)
+
+A directly supervised neural classifier with transient-preserving input features has now been trained. It detects **22/29 events** on the previously examined later-year period, but produces **1,559 false alert episodes per 1,000 nominal hours**. It is **not suitable for deployment** and has not replaced either the synthetic dashboard or the original autoencoder. See [the supervised experiment report](docs/ESA_SUPERVISED.md) for the full trade-off and retrospective-evaluation caveat.
+
+## Real ESA neural-network experiment (added after the synthetic MVP)
+
+A separate PyTorch temporal autoencoder has now been trained on **real ESA Mission 1 data**, channels 41–46, covering 2000–2013. The held-out 2007–2013 test detected **4/29 distinct anomaly events**, with 60.6% point precision, 85.7% point recall and 9.33 false episodes per 1,000 nominal hours. This is an initial research result, not a validated operational model. The synthetic Streamlit dashboard remains a separate demo and does not display this neural model's scores.
+
+See [the real-data experiment report](docs/ESA_NEURAL.md) for training scope, reproduction commands, baseline comparison and limitations. The historical synthetic results and statements below describe the original V0 only; real mission data was subsequently downloaded for this separate experiment.
+
 ## Measured result in this build
 
 The included `reports/metrics.json` and `reports/runs.csv` contain actual results from 100 randomized degradation runs and 100 independent healthy controls, using evaluation seeds 1000–1199:
@@ -203,3 +221,13 @@ For an additional channel, extend the registry/subsystem membership and ingestio
 7. Develop and validate the separate battery prognostics module before exposing SOH/RUL estimates.
 
 The MVP answers the central question **yes for these three controlled synthetic scenarios**. It does **not** establish that false alarms are acceptable for spacecraft operations or that the same lead times transfer to real mission data.
+
+### Real-data false-alarm investigation
+
+The frozen supervised classifier's excessive alerts concentrate in 2009–2012. Input sensitivity tests implicate absolute signal levels, especially channels 41 and 45; this is evidence of a model transfer problem, not a physical fault diagnosis. See [the reproducible audit](docs/ESA_FALSE_ALARM_AUDIT.md). No model improvement or deployment is claimed.
+
+### V3: working real-telemetry context model
+
+The new causal recent-context neural model detected **19/29 real annotated events** with **2.65 false alert episodes per 1,000 scored nominal hours** on retrospective 2007–2013 evaluation. Minute recall remains only **2.68%**, and these are detections after onset, not failure predictions. Augmentation did not win the comparison. The synthetic risk demonstration remains separate; the new real workspace uses the context model with alert recovery.
+
+Run real-channel CSV inference with `python -m src.neural.predict_contextual --input telemetry.csv --output predictions.csv`. See [methodology, full metrics, schema and limitations](docs/ESA_CONTEXTUAL.md). The updated suite has 52 passing tests.
