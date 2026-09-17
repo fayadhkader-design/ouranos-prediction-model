@@ -2,7 +2,7 @@ CSS = """
 <style>
 :root {--ink:#e3e7ec;--muted:#a5adb8;--accent:#86b8c8;--line:#30353d;}
 .stApp {background:#171a1f;color:var(--ink);}
-.block-container {padding-top:4rem;padding-bottom:3rem;max-width:1440px;}
+.block-container {padding-top:5rem!important;padding-bottom:3rem;max-width:1440px;}
 h1,h2,h3 {font-family:system-ui,sans-serif;letter-spacing:-.015em;text-wrap:balance;}
 h1 {font-size:1.65rem!important;} h2 {font-size:1.2rem!important;} h3 {font-size:1rem!important;font-weight:600!important;}
 p,li {text-wrap:pretty;} [data-testid="stCaptionContainer"], [data-testid="stCaptionContainer"] p {color:var(--muted)!important;}
