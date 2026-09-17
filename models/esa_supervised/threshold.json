@@ -1,0 +1,227 @@
+{
+  "chosen": {
+    "threshold": 0.99,
+    "detected_events": 7,
+    "scorable_events": 8,
+    "false_starts_per_1000h": 1.204290715778789
+  },
+  "policy": "Max calibration event detection with <=10 false episode starts/1000 nominal hours; ties favor fewer false starts then higher threshold",
+  "trials": [
+    {
+      "threshold": 0.05,
+      "detected_events": 8,
+      "scorable_events": 8,
+      "false_starts_per_1000h": 203.92656120520826
+    },
+    {
+      "threshold": 0.08241379310344828,
+      "detected_events": 8,
+      "scorable_events": 8,
+      "false_starts_per_1000h": 1342.2106763239312
+    },
+    {
+      "threshold": 0.11482758620689655,
+      "detected_events": 8,
+      "scorable_events": 8,
+      "false_starts_per_1000h": 4940.918070955661
+    },
+    {
+      "threshold": 0.1472413793103448,
+      "detected_events": 7,
+      "scorable_events": 8,
+      "false_starts_per_1000h": 7309.069742769238
+    },
+    {
+      "threshold": 0.17965517241379308,
+      "detected_events": 7,
+      "scorable_events": 8,
+      "false_starts_per_1000h": 6681.290196786837
+    },
+    {
+      "threshold": 0.21206896551724136,
+      "detected_events": 7,
+      "scorable_events": 8,
+      "false_starts_per_1000h": 5866.558853974016
+    },
+    {
+      "threshold": 0.24448275862068963,
+      "detected_events": 7,
+      "scorable_events": 8,
+      "false_starts_per_1000h": 5458.533690032773
+    },
+    {
+      "threshold": 0.2768965517241379,
+      "detected_events": 7,
+      "scorable_events": 8,
+      "false_starts_per_1000h": 5182.234991526954
+    },
+    {
+      "threshold": 0.3093103448275862,
+      "detected_events": 7,
+      "scorable_events": 8,
+      "false_starts_per_1000h": 4948.373203958102
+    },
+    {
+      "threshold": 0.34172413793103446,
+      "detected_events": 7,
+      "scorable_events": 8,
+      "false_starts_per_1000h": 4703.844841478066
+    },
+    {
+      "threshold": 0.37413793103448273,
+      "detected_events": 7,
+      "scorable_events": 8,
+      "false_starts_per_1000h": 4431.101667942641
+    },
+    {
+      "threshold": 0.406551724137931,
+      "detected_events": 7,
+      "scorable_events": 8,
+      "false_starts_per_1000h": 4160.480339954064
+    },
+    {
+      "threshold": 0.4389655172413793,
+      "detected_events": 7,
+      "scorable_events": 8,
+      "false_starts_per_1000h": 3859.407661009367
+    },
+    {
+      "threshold": 0.47137931034482755,
+      "detected_events": 7,
+      "scorable_events": 8,
+      "false_starts_per_1000h": 3546.5788107915914
+    },
+    {
+      "threshold": 0.5037931034482759,
+      "detected_events": 7,
+      "scorable_events": 8,
+      "false_starts_per_1000h": 3229.0474920645843
+    },
+    {
+      "threshold": 0.5362068965517242,
+      "detected_events": 7,
+      "scorable_events": 8,
+      "false_starts_per_1000h": 2900.73490407251
+    },
+    {
+      "threshold": 0.5686206896551724,
+      "detected_events": 7,
+      "scorable_events": 8,
+      "false_starts_per_1000h": 2580.96704544477
+    },
+    {
+      "threshold": 0.6010344827586207,
+      "detected_events": 7,
+      "scorable_events": 8,
+      "false_starts_per_1000h": 2269.5718746505404
+    },
+    {
+      "threshold": 0.633448275862069,
+      "detected_events": 7,
+      "scorable_events": 8,
+      "false_starts_per_1000h": 1961.3307985881124
+    },
+    {
+      "threshold": 0.6658620689655173,
+      "detected_events": 7,
+      "scorable_events": 8,
+      "false_starts_per_1000h": 1676.3153291871322
+    },
+    {
+      "threshold": 0.6982758620689655,
+      "detected_events": 7,
+      "scorable_events": 8,
+      "false_starts_per_1000h": 1392.7335392096984
+    },
+    {
+      "threshold": 0.7306896551724138,
+      "detected_events": 7,
+      "scorable_events": 8,
+      "false_starts_per_1000h": 1136.3343111027
+    },
+    {
+      "threshold": 0.7631034482758621,
+      "detected_events": 7,
+      "scorable_events": 8,
+      "false_starts_per_1000h": 905.2251880270563
+    },
+    {
+      "threshold": 0.7955172413793103,
+      "detected_events": 7,
+      "scorable_events": 8,
+      "false_starts_per_1000h": 692.9259389883384
+    },
+    {
+      "threshold": 0.8279310344827586,
+      "detected_events": 7,
+      "scorable_events": 8,
+      "false_starts_per_1000h": 502.59065871834787
+    },
+    {
+      "threshold": 0.8428420734405522,
+      "detected_events": 7,
+      "scorable_events": 8,
+      "false_starts_per_1000h": 426.08952467792386
+    },
+    {
+      "threshold": 0.8603448275862069,
+      "detected_events": 7,
+      "scorable_events": 8,
+      "false_starts_per_1000h": 343.5669370586059
+    },
+    {
+      "threshold": 0.890595991015434,
+      "detected_events": 7,
+      "scorable_events": 8,
+      "false_starts_per_1000h": 220.84397840305314
+    },
+    {
+      "threshold": 0.8927586206896552,
+      "detected_events": 7,
+      "scorable_events": 8,
+      "false_starts_per_1000h": 210.6935280843462
+    },
+    {
+      "threshold": 0.9251724137931034,
+      "detected_events": 7,
+      "scorable_events": 8,
+      "false_starts_per_1000h": 112.11373092131106
+    },
+    {
+      "threshold": 0.9490798339843745,
+      "detected_events": 7,
+      "scorable_events": 8,
+      "false_starts_per_1000h": 50.86694594741837
+    },
+    {
+      "threshold": 0.9575862068965517,
+      "detected_events": 7,
+      "scorable_events": 8,
+      "false_starts_per_1000h": 35.4405553500615
+    },
+    {
+      "threshold": 0.9637851600050926,
+      "detected_events": 7,
+      "scorable_events": 8,
+      "false_starts_per_1000h": 26.78113163184259
+    },
+    {
+      "threshold": 0.9819699303150152,
+      "detected_events": 7,
+      "scorable_events": 8,
+      "false_starts_per_1000h": 5.8494120480684035
+    },
+    {
+      "threshold": 0.99,
+      "detected_events": 7,
+      "scorable_events": 8,
+      "false_starts_per_1000h": 1.204290715778789
+    },
+    {
+      "threshold": 1.0,
+      "detected_events": 0,
+      "scorable_events": 8,
+      "false_starts_per_1000h": 0.0
+    }
+  ]
+}
